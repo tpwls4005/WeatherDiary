@@ -1,0 +1,47 @@
+/* body {
+   margin: 0;
+   padding: 0;
+} */
+
+.wrap {
+   background-color: aliceblue;
+}
+
+/* 헤더 */
+header .container {
+   display: flex;
+   justify-content: space-between;
+}
+
+.header_logo {
+   padding: 0;
+}
+.fa-bell {
+   margin-top: 1em;
+   padding-right: 1em;
+   font-size: 2rem;
+}
+/* 메인 */
+section > .container > .row {
+   border: 1px solid black;
+   border-radius: 18px;
+   background-color: beige;
+   margin: 1em;
+   padding: 1em;
+}
+
+.location {
+   display: flex;
+   justify-content: space-between;
+}
+
+/* 푸터 */
+footer > .container > .row {
+   display: flex;
+   justify-content: space-around;
+   border: 1px solid black;
+   border-radius: 5px;
+   background-color: beige;
+   margin: 1em;
+   padding: 1em;
+}

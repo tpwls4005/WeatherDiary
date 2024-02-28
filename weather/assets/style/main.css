@@ -1,0 +1,16 @@
+.today_weather{
+    width:100%;
+    padding:5%;
+    background:#fff;
+    border-radius: 30px;
+    text-align: center;
+    margin-bottom:5%;
+}
+
+.weekly_weather{
+    width:100%;
+    padding:5%;
+    background:#fff;
+    border-radius: 30px;
+    text-align: center;
+}

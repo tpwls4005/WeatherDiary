@@ -6,13 +6,6 @@
     text-align: center;
     margin-bottom:5%;
 }
-.weekly_weather{
-    width:100%;
-    padding:5%;
-    background:#fff;
-    border-radius: 30px;
-    text-align: center;
-}
 .today_address{
     font-size: 1.1em;
     line-height: 1.5;
@@ -40,23 +33,42 @@
     color:#dc0100;
 }
 .today_weather ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 20px;
     gap: 15px;
 }
 
-.weekly_forecast_area{
-
-}
 .weekly_forecast_area .title{
     font-size: 1.1em;
     line-height: 1.5;
     font-weight: 600;
     margin-bottom: 20px;
 }
-.weekly_forecast_area .week_list{
-    
+.weekly_forecast_area .title p{
+    font-size: 0.8rem;
+    font-weight: 400;
 }
-
+.week_list{
+    margin:0px !important;
+    gap:10px;
+}
+.week_list .week_item{
+    border-radius: 30px;
+    background:#fff;
+    padding: 2% 5%;
+}
+.weekly_weather{
+    width:100%;
+    text-align: center;
+}
+.cell_date{
+    width:50px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+.cell_date span{
+    font-size:0.7em;
+    font-weight: 400;
+}
+@media (min-width: 992px){
+    .col-lg-6 {width:calc(50% - 5px);}
+}

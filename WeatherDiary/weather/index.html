@@ -16,13 +16,13 @@
 </head>
 <body>
   <div class="body_wrap">
-    <header>
+    <header class="position-sticky top-0 start-0 d-flex justify-content-between align-items-center">
       <div class="weather_subNav"></div>
       <div class="weather_logo">Weather</div>
       <div class="weather_alarm">알림</div>
     </header>
-    <nav class="top_category">
-      <ul>
+    <nav class="top_category position-sticky start-0">
+      <ul class="d-flex justify-content-center align-items-center">
         <li>홈</li>
         <li>오늘의 날씨</li>
         <li>일기</li>
@@ -34,29 +34,10 @@
           
       </div>
       <div class="weekly_forecast_area">
-        <div class="title">주간날씨</div>
+        <div class="title d-flex justify-content-between align-items-center">주간날씨 <p><span class="min">최저</span>/<span class="max">최고</span></p></div>
         <div class="weekly_weather text-center">
             <ul class="week_list row">
-              <li  class="col d-inline-flex p-5 justify-content-between">
-                <div class="cell_date flex-column">
-                    월<span>오늘</span>
-                </div>
-                <div class="cell_icon"></div>
-                <div class="cell_temperature">
-                  <span class="lowest">0°</span>
-                  <span class="highest">0°</span>
-                </div>
-              </li>
-              <li  class="col d-inline-flex p-5 justify-content-between">
-                <div class="cell_date flex-column">
-                    화<span>2/27</span>
-                </div>
-                <div class="cell_icon"></div>
-                <div class="cell_temperature">
-                  <span class="lowest">0°</span>
-                  <span class="highest">0°</span>
-                </div>
-              </li>
+             
             </ul>
         </div>
       </div>

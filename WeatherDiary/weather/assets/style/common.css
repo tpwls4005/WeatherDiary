@@ -57,24 +57,13 @@ table {
     background:#f7f7f7;
 }
 header{
-    position:sticky;
-    left:0;
-    top:0;
     width:100%;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
     height: 50px;
 }
 .top_category{
-    position: sticky;
-    left:0;
     top:50px;
 }
 .top_category ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap:10px;
 }
 .contain{

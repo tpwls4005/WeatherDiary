@@ -1,47 +1,97 @@
-/* body {
+body {
    margin: 0;
    padding: 0;
-} */
-
-.wrap {
-   background-color: aliceblue;
+   background-color: #f7f7f7;
 }
 
 /* 헤더 */
-header .container {
-   display: flex;
-   justify-content: space-between;
+header .container .row .col-auto {
+   margin-top: 0.5em;
 }
 
-.header_logo {
-   padding: 0;
+header .container .row .col-auto:nth-child(2) {
+   font-size: 2.5rem;
+   font-weight: bold;
 }
-.fa-bell {
-   margin-top: 1em;
+
+header .container .row .col-auto a i {
+   font-size: 1.8rem;
+   padding-top: 1.2em;
    padding-right: 1em;
-   font-size: 2rem;
 }
+
 /* 메인 */
-section > .container > .row {
-   border: 1px solid black;
-   border-radius: 18px;
-   background-color: beige;
-   margin: 1em;
-   padding: 1em;
+main .container > .row {
+   padding-top: 2em;
 }
 
-.location {
-   display: flex;
-   justify-content: space-between;
+main .container .row .col-4 {
+   min-height: 80vh;
+   min-width: 50vh;
+   margin: 0 auto;
+   background-color: blue;
 }
 
-/* 푸터 */
-footer > .container > .row {
+main .container .row .col-4 .card {
+   height: 100%;
+}
+
+main .container .row .col-4 .card .card-header {
    display: flex;
-   justify-content: space-around;
-   border: 1px solid black;
-   border-radius: 5px;
+   font-size: 1.3em;
+   padding: 0.8em;
+}
+
+main .container .row .col-4 .card .card-header i {
+   padding-right: 1em;
+   padding-top: 0.2em;
+}
+
+main .container .row .col-4 .card img {
+   width: 50%;
+   height: 50%;
+   margin: 0 auto;
+   padding-top: 5em;
+}
+
+main .container .row .col-4 .card-body .card-text:nth-child(1) {
+   font-size: 1rem;
+   padding: 0.5em;
+   text-align: center;
+}
+
+main .container .row .col-4 .card-body .card-text:nth-child(1) i {
+   padding-right: 1em;
+   padding-top: 0.1em;
+}
+
+main .container .row .col-4 .card-body .card-text:nth-child(2) {
+   text-align: center;
+}
+
+main .container .row .col-4 .card-body .card-text:nth-child(2) h2 {
+   font-size: 2.2rem;
+   padding: 0.8em 0;
+}
+
+main .container .row .col-4 .card-body .list-group li span:nth-child(2) {
+   font-size: 1.5rem;
+   padding-top: 0.8em;
+   padding-left: 2em;
+}
+
+main .container .row .col-8 {
+   min-height: 80vh;
+   margin: 0 auto;
    background-color: beige;
-   margin: 1em;
-   padding: 1em;
+}
+
+main .container .row .col-8 .row {
+   min-height: 10vh;
+}
+
+main .container .row .col-8 .row .col-2 {
+   min-height: 40vh;
+   min-width: 10vh;
+   margin: 0 auto;
 }

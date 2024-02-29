@@ -31,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    background:#f7f7f7;
 }
 ol, ul {
 	list-style: none;
@@ -54,11 +55,18 @@ table {
     width:100%;
     max-width:1000px;
     margin:0 auto;
-    background:#f7f7f7;
 }
 header{
-    width:100%;
+    width: calc(100% - 32px);
     height: 50px;
+    margin:0 auto;
+    background-color: rgba(247,247,247,0.5);
+}
+.weather_alarm{
+    position: absolute;
+    right:0;
+    top:50%;
+    transform: translateY(-50%);
 }
 .top_category{
     top:50px;
@@ -66,7 +74,20 @@ header{
 .top_category ul{
     gap:10px;
 }
+.top_category li{
+    font-size:15px;
+    font-weight: 600;
+}
+.top_category li.on{
+    color:#20B5B5;
+}
 .contain{
     width:100%;
     padding: 5% 16px;  
+}
+@media screen and (max-width: 63rem) {
+    .top_category{
+        display: none;
+    }
+    
 }

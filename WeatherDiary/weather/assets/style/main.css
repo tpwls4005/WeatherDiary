@@ -1,10 +1,17 @@
 .today_weather{
     width:100%;
-    padding:5%;
+    padding:50px 5%;
     background:#fff;
     border-radius: 30px;
     text-align: center;
     margin-bottom:5%;
+    position:relative;
+}
+.today_add{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 190px;
 }
 .today_address{
     font-size: 1.1em;
@@ -21,6 +28,7 @@
     margin: 5px 0;
     font-weight: 700;
 }
+
 .today_addTemperature,
 .today_addTemperature span{
     font-size: 1em;
@@ -33,10 +41,16 @@
     color:#dc0100;
 }
 .today_weather ul{
-    margin: 20px;
+    margin: 60px 0 0px;
     gap: 15px;
 }
-
+.today_weather ul li{
+    font-weight: 600;
+}
+.today_weather ul li span{
+    color: #999;
+    font-weight: 400;
+}
 .weekly_forecast_area .title{
     font-size: 1.1em;
     line-height: 1.5;

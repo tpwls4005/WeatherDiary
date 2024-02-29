@@ -36,11 +36,17 @@ const todayRender = () => {
     todayWeather.innerHTML = ''; // 이전의 날씨 정보를 초기화
 
     const forecast = weatherList[0]; // 첫 번째 날씨 예보 정보 가져오기
-    const Temperature = Math.round((forecast.ApparentTemperature.Metric.Value));
-    
+    const Temperature = Math.round((forecast.Temperature.Metric.Value));
+    const realFeelTemperature =  Math.round((forecast.RealFeelTemperature.Metric.Value));
+
     const forecastDetails = `<div class="today_address">서울특별시</div> 
     <div class="today_cont">${forecast.WeatherText}</div>       
-    <div class="today_temperature">${Temperature}</div>
+    <div class="today_temperature">${Temperature}°</div>
+        <ul class="d-flex justify-content-center align-items-center">
+            <li><span>습도 : </span>${forecast.RelativeHumidity}%</li>
+            <li><span>체감 : </span>${realFeelTemperature}°</li>
+            <li><span>바람 : </span>${forecast.Wind.Direction.Localized} ${forecast.Wind.Speed.Metric.Value}km/h</li>
+        </ul>
     `;
     todayWeather.innerHTML = forecastDetails; // 가져온 날씨 정보를 HTML 요소에 넣기
 }
@@ -56,12 +62,6 @@ const todayAddRender = () => {
 
     const forecastAddDetails = `
             <div class="today_addTemperature"><span class="min">${minTemperature}°</span> / <span class="max">${maxTemperature}°</span></div>
-                <ul class="d-flex justify-content-center align-items-center">
-                    <li>습도 : ${forecast.Day.WetBulbTemperature.Average.Value}</li>
-                    <li>바람 : ${forecast.Day.Wind.Speed.Value}  ${forecast.Day.Wind.Direction.Localized}</li>
-                    <li>자외선 : ${forecast.AirAndPollen[5].Value} </li>
-                </ul>
-            <div class="today_style"></div>
     `;
     todayAddWeather.innerHTML = forecastAddDetails; // 가져온 날씨 정보를 HTML 요소에 넣기
 };

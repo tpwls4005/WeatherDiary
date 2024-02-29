@@ -60,6 +60,13 @@
     width:100%;
     text-align: center;
 }
+.cell_icon{
+    font-size:0;
+    line-height:0;
+}
+.cell_icon img{
+    width:30px;
+}
 .cell_date{
     width:50px;
     line-height: 1.5;

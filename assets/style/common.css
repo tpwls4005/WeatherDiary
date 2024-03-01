@@ -59,11 +59,17 @@ a{
     max-width:1000px;
     margin:0 auto;
 }
+#header{
+    background-color: rgba(247,247,247,0.5);
+    width: 100%;
+    height: auto;
+    z-index: 999;
+}
 header{
     width: calc(100% - 32px);
     height: 80px;
     margin:0 auto;
-    background-color: rgba(247,247,247,0.5);
+
     z-index:99;
 }
 header.scroll{
@@ -87,7 +93,6 @@ header.scroll .weather_logo{
 .top_category{
     top:80px;
     z-index:99;
-    background-color: rgba(247,247,247,0.5);
     padding: 20px 0;
 }
 .top_category.scroll{
@@ -168,7 +173,7 @@ header.scroll .weather_logo{
 }
 @media screen and (max-width: 63rem) {
     .top_category{
-        display: none;
+        display: none !important;
     }
     .foo_nav{
         display: block;

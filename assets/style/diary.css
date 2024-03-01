@@ -1,0 +1,57 @@
+body{
+    background-color: lightskyblue;
+}
+
+.diary_container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diary_top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+}
+.form-control{
+    border-radius: 20px;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding:30px;
+    resize: none;
+}
+.diary-content {
+    white-space: pre-line; 
+}
+
+.diary_button button{
+    margin: 3px;
+    width: 80px;
+    height: 50px;
+    font-size: medium;
+}
+
+.emotion_content button {
+    margin: 3px;
+    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: xx-large;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.emotion_content button.btn-clicked {
+    background-color: #0080ff;
+}
+
+.btn-clicked {
+    background-color: #0080ff;
+}

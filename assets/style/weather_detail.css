@@ -3,11 +3,12 @@ body {
    padding: 0;
    background-color: #f7f7f7;
 }
-/* 헤더 */
 
 .card {
    border: none;
 }
+
+/* 헤더 */
 
 header .container .row .col-auto {
    margin-top: 0.5em;
@@ -30,13 +31,14 @@ main .container {
    max-width: 1200px;
    margin: 0 auto;
 }
+
 main .container > .row {
    padding: 1.5em 0 3em 0;
 }
 
 main .container .row .col-4 {
    min-height: 80vh;
-   min-width: 50vh;
+   min-width: 40vh;
    margin: 0 auto;
 }
 
@@ -77,7 +79,7 @@ main .container .row .col-4 .card-body .card-text:nth-child(2) {
    font-weight: bolder;
    color: #d35400;
    text-align: center;
-   padding: 0.1em 0 0.5em 0;
+   padding: 0.5em 0 0.7em 0;
 }
 
 main .container .row .col-4 .card-body .list-group li span:nth-child(1) {
@@ -114,18 +116,19 @@ main .container .row .col-8 .row {
 }
 
 main .container .row .col-8 .row .col-2 {
-   min-height: 33vh;
+   min-height: 30vh;
    min-width: 5em;
    margin: 0 auto;
+}
+
+main .container .row .col-8 .row .col-2 .card {
+   padding: 0.1em 0.3em;
 }
 
 main .container .row .col-8 .row .col-2 .card > p {
    color: #999999;
    text-align: center;
-}
-
-main .container .row .col-8 .row .col-2 .card {
-   padding: 0.1em 0.3em;
+   padding-top: 1em;
 }
 
 main .container .row .col-8 .row .col-2 .card img {
@@ -197,14 +200,27 @@ main
    .col-md-8
    .card-body
    p {
-   line-height: 0;
+   line-height: 1.5em;
 }
 
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 {
    text-align: center;
 }
 
+main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body {
+   color: #566573;
+}
+
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body img {
    width: 28%;
    padding-bottom: 0.3em;
+}
+
+main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body h5 {
+   font-size: 1.3rem;
+   padding-bottom: 0.5em;
+}
+
+main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body p {
+   line-height: 1.5em;
 }

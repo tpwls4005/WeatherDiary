@@ -8,9 +8,9 @@ let weatherDailyDetails = []
 // let url = new URL()
 
 const getWeather = async () => {
-   // const url = new URL(
-   //    `http://dataservice.accuweather.com/currentconditions/v1/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true`
-   // )
+   let url = new URL(
+      `http://dataservice.accuweather.com/currentconditions/v1/226081?apikey=lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7&language=ko-kr&details=true`
+   )
    const response = await fetch(url)
    const data = await response.json()
    console.log(data)
@@ -23,9 +23,9 @@ const getWeather = async () => {
 getWeather()
 
 const getHourlyWeather = async () => {
-   // let url2 = new URL(
-   //    `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true&metric=true`
-   // )
+   let url2 = new URL(
+      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/226081?apikey=lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7&language=ko-kr&details=true&metric=true`
+   )
    const response = await fetch(url2)
    const data2 = await response.json()
    console.log(data2)
@@ -38,9 +38,9 @@ const getHourlyWeather = async () => {
 getHourlyWeather()
 
 const getDailyWeather = async () => {
-   // let url3 = new URL(
-   //    `http://dataservice.accuweather.com/forecasts/v1/daily/1day/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true&metric=true`
-   // )
+   let url3 = new URL(
+      `http://dataservice.accuweather.com/forecasts/v1/daily/1day/226081?apikey=lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7&language=ko-kr&details=true&metric=true`
+   )
    const response = await fetch(url3)
    const data3 = await response.json()
    console.log(data3)
@@ -121,6 +121,26 @@ const dailyRender = () => {
                                        <p class="card-text"><i class="fa-solid fa-temperature-three-quarters"></i> ${weatherDailyDetails.DailyForecasts[0].Night.WetBulbTemperature.Minimum.Value}° / ${weatherDailyDetails.DailyForecasts[0].Night.WetBulbTemperature.Maximum.Value}°</p>
                                        <p class="card-text"><i class="fa-solid fa-droplet"></i> ${weatherDailyDetails.DailyForecasts[0].Night.RainProbability}%</p>
                                        <p class="card-text"><i class="fa-solid fa-wind"></i> ${weatherDailyDetails.DailyForecasts[0].Night.Wind.Speed.Value}</p>`
+
+   document.querySelector(
+      '#etc_sun'
+   ).innerHTML = `<img src="../assets/image/sun.png" alt="." />
+                                       <h5 class="card-title">일출 / 일몰</h5>
+                                       <p class="card-text"><i class="fa-solid fa-caret-up"></i> ${moment(
+                                          weatherDailyDetails.DailyForecasts[0]
+                                             .Sun.Rise
+                                       ).format('LLL')}</p>
+                                       <p class="card-text"><i class="fa-solid fa-caret-down"></i> ${moment(
+                                          weatherDailyDetails.DailyForecasts[0]
+                                             .Sun.Set
+                                       ).format('LLL')}</p>`
+
+   document.querySelector(
+      '#etc_air'
+   ).innerHTML = `<img src="../assets/image/air.png" alt="." />
+                                       <h5 class="card-title">대기</h5>
+                                       <p class="card-text"><i class="fa-solid fa-person-running"></i> ${weatherDailyDetails.DailyForecasts[0].AirAndPollen[0].Category}</p>
+                                       <p class="card-text"><i class="fa-regular fa-sun"></i> ${weatherDailyDetails.DailyForecasts[0].AirAndPollen[5].Category}</p>`
 }
 
 const getImageSrc = (text) => {

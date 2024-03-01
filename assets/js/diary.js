@@ -6,12 +6,18 @@ let addButton = document.getElementById("submit_btn")
 let deleteButton = document.getElementById("delete_btn")
 let emotionContent = document.querySelector(".emotion_content")
 
-let diaryList = []
+// 등록한 {content, emotion} 캘린더에 넘겨줘야한다
+// let diaryList = []
 let myEmotion = ""
 addButton.disabled = true
 
+
 const addDiary = () => {
-	const newDiary = { content: diaryText.value, emotion: myEmotion }
+	const newDiary = { 
+        content: diaryText.value, 
+        emotion: myEmotion,
+        id: randomId()
+    }
 	diaryList.push(newDiary)
 	if (newDiary.content.value > 0) {
 		addButton.disabled = false
@@ -24,9 +30,10 @@ const addDiary = () => {
 	document.querySelectorAll(".emotion_content button").forEach(btn => {
 		btn.classList.remove("btn-clicked")
 	})
-	alert(`등록되었습니다!`)
+	alert(`saved!`)
 	console.log(`일기 내용 : ${newDiary.content}
-    감정 : ${newDiary.emotion}`)
+    감정 : ${newDiary.emotion}
+    id : ${randomId()}`)
 }
 addButton.addEventListener("click", addDiary)
 
@@ -54,3 +61,7 @@ const getSelectedEmotion = () => {
 }
 
 getSelectedEmotion()
+
+function randomId() {
+    return '-' + Math.random().toString(36).substr(2, 9)
+}

@@ -1,3 +1,9 @@
+*{
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 body{
     background-color: lightskyblue;
 }
@@ -19,6 +25,9 @@ body{
     padding: 10px;
     background-color: white;
 }
+.diary_weather{
+    margin: 10px;
+}
 .form-control{
     border-radius: 20px;
     background-color: white;
@@ -26,6 +35,11 @@ body{
     height: 100%;
     padding:30px;
     resize: none;
+}
+input::placeholder {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 .diary-content {
     white-space: pre-line; 
@@ -36,6 +50,7 @@ body{
     width: 80px;
     height: 50px;
     font-size: medium;
+    border-radius: 30px;
 }
 
 .emotion_content button {

@@ -8,9 +8,9 @@ let weatherDailyDetails = []
 // let url = new URL()
 
 const getWeather = async () => {
-   const url = new URL(
-      `http://dataservice.accuweather.com/currentconditions/v1/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true`
-   )
+   // const url = new URL(
+   //    `http://dataservice.accuweather.com/currentconditions/v1/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true`
+   // )
    const response = await fetch(url)
    const data = await response.json()
    console.log(data)
@@ -23,9 +23,9 @@ const getWeather = async () => {
 getWeather()
 
 const getHourlyWeather = async () => {
-   let url2 = new URL(
-      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true&metric=true`
-   )
+   // let url2 = new URL(
+   //    `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true&metric=true`
+   // )
    const response = await fetch(url2)
    const data2 = await response.json()
    console.log(data2)
@@ -38,9 +38,9 @@ const getHourlyWeather = async () => {
 getHourlyWeather()
 
 const getDailyWeather = async () => {
-   let url3 = new URL(
-      `http://dataservice.accuweather.com/forecasts/v1/daily/1day/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true&metric=true`
-   )
+   // let url3 = new URL(
+   //    `http://dataservice.accuweather.com/forecasts/v1/daily/1day/226081?apikey=nv6XTKu9utcGZSoAam5e2hKSAzUiHANi&language=ko-kr&details=true&metric=true`
+   // )
    const response = await fetch(url3)
    const data3 = await response.json()
    console.log(data3)
@@ -55,38 +55,52 @@ getDailyWeather()
 // 2. 날씨 api 그려주기
 const currentRender = () => {
    const imageSrc = getImageSrc(`${weatherDetails.WeatherText}`)
-   console.log(imageSrc)
 
    document.querySelector('.card-img-top').src = `${imageSrc}`
-   document.querySelector('#current_date').textContent = `${moment(weatherDetails.LocalObservationDateTime).format('LLL')}`
-   document.querySelector('#current_temperature').textContent = `${weatherDetails.Temperature.Metric.Value}℃`
-   document.querySelector('#current_list1').textContent = `${weatherDetails.WeatherText}`
-   document.querySelector('#current_list2').textContent = `${weatherDetails.RealFeelTemperature.Metric.Value}℃`
-   document.querySelector('#current_list3').textContent = `${weatherDetails.RelativeHumidity}%`
-   document.querySelector('#current_list4').textContent = `${weatherDetails.Wind.Direction.Localized} ${weatherDetails.Wind.Speed.Metric.Value}km/h`
+   document.querySelector('#current_date').textContent = `${moment(
+      weatherDetails.LocalObservationDateTime
+   ).format('LLL')}`
+   document.querySelector(
+      '#current_temperature'
+   ).textContent = `${weatherDetails.Temperature.Metric.Value}℃`
+   document.querySelector(
+      '#current_list1'
+   ).textContent = `${weatherDetails.WeatherText}`
+   document.querySelector(
+      '#current_list2'
+   ).textContent = `${weatherDetails.RealFeelTemperature.Metric.Value}℃`
+   document.querySelector(
+      '#current_list3'
+   ).textContent = `${weatherDetails.RelativeHumidity}%`
+   document.querySelector(
+      '#current_list4'
+   ).textContent = `${weatherDetails.Wind.Direction.Localized} ${weatherDetails.Wind.Speed.Metric.Value}km/h`
 }
 
 const hourlyRender = () => {
    for (let i = 0; i <= 5; i++) {
       const imageSrc = getImageSrc(`${weatherHourlyDetails[i].IconPhrase}`)
-      console.log(imageSrc)
 
       document.querySelector('#hourly').innerHTML += `<div class="col-2">
-                           <div class="card" tyle="min-width: 10%">
-                              <p>+ ${i + 1}시간</p>
-                              <img src="${imageSrc}" class="card-img-top" alt="." />
-                              <div class="card-body">
-                                 <h5 class="card-title">${weatherHourlyDetails[i].Temperature.Value}</h5>
-                                 <p class="card-text">${weatherHourlyDetails[i].Rain.Value}</p>
-                              </div>
-                           </div>
-                           </div>
+        <div class="card" style="min-width: 10%">
+            <p>+ ${i + 1}시간</p>
+            <img src="${imageSrc}" class="card-img-top" alt="." />
+            <div class="card-body">
+                <h5 class="card-title">${
+                   weatherHourlyDetails[i].Temperature.Value
+                }</h5>
+                <p class="card-text">${weatherHourlyDetails[i].Rain.Value}</p>
+            </div>
+        </div>
+        </div>
    `
    }
 }
 
 const dailyRender = () => {
-   let imageSrc = getImageSrc(`${weatherDailyDetails.DailyForecasts[0].Day.IconPhrase}`)
+   let imageSrc = getImageSrc(
+      `${weatherDailyDetails.DailyForecasts[0].Day.IconPhrase}`
+   )
    console.log(imageSrc)
 
    document.querySelector('#day_summary').innerHTML = `<img src="${imageSrc}" />
@@ -95,10 +109,14 @@ const dailyRender = () => {
                                        <p class="card-text"><i class="fa-solid fa-droplet"></i> ${weatherDailyDetails.DailyForecasts[0].Day.RainProbability}%</p>
                                        <p class="card-text"><i class="fa-solid fa-wind"></i> ${weatherDailyDetails.DailyForecasts[0].Day.Wind.Speed.Value}</p>`
 
-   imageSrc = getImageSrc(`${weatherDailyDetails.DailyForecasts[0].Night.IconPhrase}`)
+   imageSrc = getImageSrc(
+      `${weatherDailyDetails.DailyForecasts[0].Night.IconPhrase}`
+   )
    console.log(imageSrc)
 
-   document.querySelector('#night_summary').innerHTML = `<img src="${imageSrc}" />
+   document.querySelector(
+      '#night_summary'
+   ).innerHTML = `<img src="${imageSrc}" />
                                        <h5 class="card-title">${weatherDailyDetails.DailyForecasts[0].Night.IconPhrase}</h5>
                                        <p class="card-text"><i class="fa-solid fa-temperature-three-quarters"></i> ${weatherDailyDetails.DailyForecasts[0].Night.WetBulbTemperature.Minimum.Value}° / ${weatherDailyDetails.DailyForecasts[0].Night.WetBulbTemperature.Maximum.Value}°</p>
                                        <p class="card-text"><i class="fa-solid fa-droplet"></i> ${weatherDailyDetails.DailyForecasts[0].Night.RainProbability}%</p>

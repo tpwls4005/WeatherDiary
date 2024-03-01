@@ -4,6 +4,11 @@ body {
    background-color: #f7f7f7;
 }
 /* 헤더 */
+
+.card {
+   border: none;
+}
+
 header .container .row .col-auto {
    margin-top: 0.5em;
 }
@@ -21,6 +26,10 @@ header .container .row .col-auto a i {
 }
 
 /* 메인 */
+main .container {
+   max-width: 1200px;
+   margin: 0 auto;
+}
 main .container > .row {
    padding: 1.5em 0 3em 0;
 }
@@ -138,21 +147,56 @@ main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 {
    text-align: center;
 }
 
-main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 .card-body {
+main
+   .container
+   .row
+   .col-8
+   #highlight_dayAndNight
+   .col
+   .card
+   .col-md-8
+   .card-body {
    color: #566573;
 }
 
-main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 .card-body img {
+main
+   .container
+   .row
+   .col-8
+   #highlight_dayAndNight
+   .col
+   .card
+   .col-md-8
+   .card-body
+   img {
    width: 28%;
    padding-bottom: 0.3em;
 }
 
-main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 .card-body h5 {
+main
+   .container
+   .row
+   .col-8
+   #highlight_dayAndNight
+   .col
+   .card
+   .col-md-8
+   .card-body
+   h5 {
    font-size: 1.3rem;
    padding-bottom: 0.5em;
 }
 
-main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 .card-body p {
+main
+   .container
+   .row
+   .col-8
+   #highlight_dayAndNight
+   .col
+   .card
+   .col-md-8
+   .card-body
+   p {
    line-height: 0;
 }
 

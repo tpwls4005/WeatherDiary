@@ -6,11 +6,11 @@ window.addEventListener('scroll', function() {
 
 
     if (scrollPosition > 0) {
-        weatherLogo.innerHTML = `<img src="../weather/assets/image/symbol.svg"/>`;
+        weatherLogo.innerHTML = `<img src="../weatherdiary/assets/image/symbol.svg"/>`;
         header.classList.add('scroll');
         topCategory.classList.add('scroll');
     } else { // 그 외의 경우
-        weatherLogo.innerHTML = `<img src="../weather/assets/image/logo.svg"/>`;
+        weatherLogo.innerHTML = `<img src="../weatherdiary/assets/image/logo.svg"/>`;
         header.classList.remove('scroll');
         topCategory.classList.remove('scroll');
     }

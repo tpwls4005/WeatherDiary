@@ -1,5 +1,6 @@
-const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
-
+//1. 날씨 api 불러오기
+// const API_KEY = 'nv6XTKu9utcGZSoAam5e2hKSAzUiHANi'
+// const API_KEY = 'lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7'
 let weatherDetails = null
 let weatherHourlyDetails = []
 let weatherDailyDetails = []
@@ -16,7 +17,7 @@ const getWeather = async () => {
    weatherDetails = data[0]
    console.log('weatherDetails', weatherDetails)
 
-   currentRender();
+   currentRender()
 }
 
 getWeather()
@@ -67,7 +68,7 @@ const currentRender = () => {
 const hourlyRender = () => {
    for (let i = 0; i <= 5; i++) {
       const imageSrc = getImageSrc(`${weatherHourlyDetails[i].IconPhrase}`)
-
+      
       document.querySelector('#hourly').innerHTML += `<div class="col-2">
         <div class="card" style="min-width: 10%">
             <p>+ ${i + 1}시간</p>

@@ -1,8 +1,5 @@
 const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
 let weatherList = [];
-let weatherDetails = null
-let weatherHourlyDetails = []
-let weatherDailyDetails = []
 
 const fetchWeatherData = async (url, dataHandler, renderCallback) => {
     try {

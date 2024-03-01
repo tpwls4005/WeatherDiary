@@ -69,7 +69,6 @@ header{
     width: calc(100% - 32px);
     height: 80px;
     margin:0 auto;
-
     z-index:99;
 }
 header.scroll{
@@ -78,11 +77,29 @@ header.scroll{
 header.scroll .weather_logo{
     width: 50px;
 }
+.weather_logo{
+    background-image: url("../image/logo.svg");
+    background-repeat:no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+}
+header.scroll .weather_logo{
+    background-image: url("../image/symbol.svg");
+    width: 50px;
+    height: 50px;
+    background-position: center;
+}
 .weather_alarm{
     position: absolute;
     right:0;
     top:50%;
     transform: translateY(-50%);
+    background-image: url("../image/icon_alarm.svg");
+    background-repeat:no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
 }
 .weather_alarm img{
     width:28px;
@@ -116,7 +133,7 @@ header.scroll .weather_logo{
     width:100%;
     padding: 10px 16px 80px;  
 }
-.foo_nav{
+#footer{
     display: none;
     position: fixed;
     left:50%;
@@ -175,7 +192,7 @@ header.scroll .weather_logo{
     .top_category{
         display: none !important;
     }
-    .foo_nav{
+    #footer{
         display: block;
     }
 }

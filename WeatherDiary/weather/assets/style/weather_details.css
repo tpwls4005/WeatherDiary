@@ -64,7 +64,7 @@ main .container .row .col-4 .card-body .card-text:nth-child(1) {
 }
 
 main .container .row .col-4 .card-body .card-text:nth-child(2) {
-   font-size: 3rem;
+   font-size: 3.3rem;
    font-weight: bolder;
    color: #d35400;
    text-align: center;
@@ -78,8 +78,10 @@ main .container .row .col-4 .card-body .list-group li span:nth-child(1) {
 
 main .container .row .col-4 .card-body .list-group li span:nth-child(2) {
    font-size: 1.5rem;
+   font-weight: bold;
+   color: #566573;
    padding: 1em 0;
-   padding-left: 2.2em;
+   padding-left: 2em;
 }
 
 main .container .row .col-8 {
@@ -87,12 +89,78 @@ main .container .row .col-8 {
    margin: 0 auto;
 }
 
+main .container .row .col-8 h2 {
+   font-size: 1.8rem;
+   color: #454545;
+   font-weight: bold;
+   padding: 0.5em 0;
+}
+
+main .container .row .col-8 h2 i {
+   padding-right: 0.3em;
+}
+
 main .container .row .col-8 .row {
-   min-height: 10vh;
+   min-height: 20vh;
 }
 
 main .container .row .col-8 .row .col-2 {
-   min-height: 40vh;
-   min-width: 10vh;
+   min-height: 33vh;
+   min-width: 5em;
    margin: 0 auto;
+}
+
+main .container .row .col-8 .row .col-2 .card > p {
+   color: #999999;
+   text-align: center;
+}
+
+main .container .row .col-8 .row .col-2 .card {
+   padding: 0.1em 0.3em;
+}
+
+main .container .row .col-8 .row .col-2 .card img {
+   width: 80%;
+   margin: 0 auto;
+}
+
+main .container .row .col-8 .row .col-2 .card .card-body {
+   display: flex;
+   justify-content: space-between;
+}
+
+main .container .row .col-8 .row .col-2 .card .card-body h5 {
+   color: #dc7633;
+   font-weight: bold;
+}
+
+main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 {
+   text-align: center;
+}
+
+main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 .card-body {
+   color: #566573;
+}
+
+main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 .card-body img {
+   width: 28%;
+   padding-bottom: 0.3em;
+}
+
+main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 .card-body h5 {
+   font-size: 1.3rem;
+   padding-bottom: 0.5em;
+}
+
+main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 .card-body p {
+   line-height: 0;
+}
+
+main .container .row .col-8 #highlight_etc .col .card .col-md-8 {
+   text-align: center;
+}
+
+main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body img {
+   width: 28%;
+   padding-bottom: 0.3em;
 }

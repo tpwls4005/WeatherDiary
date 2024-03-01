@@ -1,13 +1,12 @@
 .today_weather{
     width:100%;
     padding:50px 5%;
-    background:#fff;
     border-radius: 30px;
     text-align: center;
     margin-bottom:5%;
     position:relative;
 }
-.today_add{
+.today_addTemperature{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -33,6 +32,17 @@
 .today_addTemperature span{
     font-size: 1em;
     line-height: 1.5;
+}
+.today_style{
+    margin-top:20px;
+    background-color:#FFC700;
+    padding:10px 30px;
+    color:#fff;
+    font-size:14px;
+    line-height:1.5;
+    font-weight: 500;
+    display: inline-block;
+    border-radius: 30px;
 }
 .min{
     color:#2a74f8;

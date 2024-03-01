@@ -48,6 +48,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+a{
+    text-decoration:none;
+}
 * {
     box-sizing: border-box;
 }
@@ -58,9 +61,16 @@ table {
 }
 header{
     width: calc(100% - 32px);
-    height: 50px;
+    height: 80px;
     margin:0 auto;
     background-color: rgba(247,247,247,0.5);
+    z-index:99;
+}
+header.scroll{
+    height: 50px;
+}
+header.scroll .weather_logo{
+    width: 50px;
 }
 .weather_alarm{
     position: absolute;
@@ -68,26 +78,99 @@ header{
     top:50%;
     transform: translateY(-50%);
 }
+.weather_alarm img{
+    width:28px;
+}
+.weather_logo{
+    width:80px;
+}
 .top_category{
+    top:80px;
+    z-index:99;
+    background-color: rgba(247,247,247,0.5);
+    padding: 20px 0;
+}
+.top_category.scroll{
     top:50px;
+    padding: 10px 0 20px;
 }
 .top_category ul{
-    gap:10px;
+    gap:20px;
 }
-.top_category li{
-    font-size:15px;
-    font-weight: 600;
+.top_category li a{
+    font-size:20px;
+    font-weight: 400;
+    color:#222;
+
 }
-.top_category li.on{
-    color:#20B5B5;
+.top_category li.on a{
+    color:#E0AF00;
+    font-weight: 700;
 }
 .contain{
     width:100%;
-    padding: 5% 16px;  
+    padding: 10px 16px 80px;  
+}
+.foo_nav{
+    display: none;
+    position: fixed;
+    left:50%;
+    width: 100%;
+    transform: translateX(-50%);
+    bottom:0;
+    background:#fff;
+    padding: 0 10%;
+}
+.foo_nav .foo_list{
+    height: 50px;
+    width:100%;
+}
+.foo_nav .foo_list li a{
+    display: block;
+    font-size:0;
+    line-height: 0;
+    width:30px;
+    height: 30px;
+}
+.foo_nav .foo_list li.foo_weather a{
+    background-image: url('../image/icon_home.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.foo_nav .foo_list li.foo_weather.on a{
+    background-image: url('../image/icon_home_on.svg');
+}
+.foo_nav .foo_list li.foo_weather_detail a{
+    background-image: url('../image/icon_weather.svg');
+    background-repeat: no-repeat;
+    background-size: contain; 
+}
+.foo_nav .foo_list li.foo_weather_detail.on a{
+    background-image: url('../image/icon_weather_on.svg');
+}
+.foo_nav .foo_list li.foo_diary a{
+    background-image: url('../image/icon_diary.svg');
+    background-repeat: no-repeat;
+    background-size: contain; 
+}
+.foo_nav .foo_list li.foo_diary.on a{
+    background-image: url('../image/icon_diary_on.svg');
+}
+.foo_nav .foo_list li.foo_mypage a{
+    background-image: url('../image/icon_mypage.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.foo_nav .foo_list li.foo_mypage.on a{
+    background-image: url('../image/icon_mypage_on.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 @media screen and (max-width: 63rem) {
     .top_category{
         display: none;
     }
-    
+    .foo_nav{
+        display: block;
+    }
 }

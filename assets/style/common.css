@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+    font-family: "Pretendard","Hi Melody", sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -30,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    background:#f7f7f7;
 }
 ol, ul {
 	list-style: none;
@@ -46,6 +48,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+a{
+    text-decoration:none;
+}
 * {
     box-sizing: border-box;
 }
@@ -53,30 +58,141 @@ table {
     width:100%;
     max-width:1000px;
     margin:0 auto;
-    background:#f7f7f7;
+}
+#header{
+    background-color: rgba(247,247,247,0.5);
+    width: 100%;
+    height: auto;
+    z-index: 999;
 }
 header{
-    position:sticky;
-    left:0;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+    width: calc(100% - 32px);
+    height: 80px;
+    margin:0 auto;
+    z-index:99;
+}
+header.scroll{
     height: 50px;
 }
+header.scroll .weather_logo{
+    width: 50px;
+}
+.weather_logo{
+    background-image: url("../image/logo.svg");
+    background-repeat:no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+}
+header.scroll .weather_logo{
+    background-image: url("../image/symbol.svg");
+    width: 50px;
+    height: 50px;
+    background-position: center;
+}
+.weather_alarm{
+    position: absolute;
+    right:0;
+    top:50%;
+    transform: translateY(-50%);
+    background-image: url("../image/icon_alarm.svg");
+    background-repeat:no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+}
+.weather_alarm img{
+    width:28px;
+}
+.weather_logo{
+    width:80px;
+}
 .top_category{
-    position: sticky;
-    left:0;
+    top:80px;
+    z-index:99;
+    padding: 20px 0;
+}
+.top_category.scroll{
     top:50px;
+    padding: 10px 0 20px;
 }
 .top_category ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:10px;
+    gap:20px;
 }
-.container{
+.top_category li a{
+    font-size:20px;
+    font-weight: 400;
+    color:#222;
+
+}
+.top_category li.on a{
+    color:#E0AF00;
+    font-weight: 700;
+}
+.contain{
     width:100%;
-    padding: 5% 16px;  
+    padding: 10px 16px 80px;  
+}
+#footer{
+    display: none;
+    position: fixed;
+    left:50%;
+    width: 100%;
+    transform: translateX(-50%);
+    bottom:0;
+    background:#fff;
+    padding: 0 10%;
+}
+.foo_nav .foo_list{
+    height: 50px;
+    width:100%;
+}
+.foo_nav .foo_list li a{
+    display: block;
+    font-size:0;
+    line-height: 0;
+    width:30px;
+    height: 30px;
+}
+.foo_nav .foo_list li.foo_weather a{
+    background-image: url('../image/icon_home.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.foo_nav .foo_list li.foo_weather.on a{
+    background-image: url('../image/icon_home_on.svg');
+}
+.foo_nav .foo_list li.foo_weather_detail a{
+    background-image: url('../image/icon_weather.svg');
+    background-repeat: no-repeat;
+    background-size: contain; 
+}
+.foo_nav .foo_list li.foo_weather_detail.on a{
+    background-image: url('../image/icon_weather_on.svg');
+}
+.foo_nav .foo_list li.foo_diary a{
+    background-image: url('../image/icon_diary.svg');
+    background-repeat: no-repeat;
+    background-size: contain; 
+}
+.foo_nav .foo_list li.foo_diary.on a{
+    background-image: url('../image/icon_diary_on.svg');
+}
+.foo_nav .foo_list li.foo_mypage a{
+    background-image: url('../image/icon_mypage.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.foo_nav .foo_list li.foo_mypage.on a{
+    background-image: url('../image/icon_mypage_on.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+@media screen and (max-width: 63rem) {
+    .top_category{
+        display: none !important;
+    }
+    #footer{
+        display: block;
+    }
 }

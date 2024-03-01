@@ -1,5 +1,8 @@
 const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
 let weatherList = [];
+let weatherDetails = null
+let weatherHourlyDetails = []
+let weatherDailyDetails = []
 
 const fetchWeatherData = async (url, dataHandler, renderCallback) => {
     try {
@@ -31,19 +34,22 @@ const getWeekWeather = () => {
     fetchWeatherData(url, data => data.DailyForecasts, weekendRender);
 };
 
-const getStyleTest = (LongPhrase) => {
-    if (LongPhrase.includes('추움')) {
-        return '날씨가 추워요. 따뜻하게 입으세요.';
-    } else if (LongPhrase.includes('눈')) {
-        return '눈이 내려요. 두툼한 겉옷 입으세요.';
-    } else if (LongPhrase.includes('가벼운 비')) {
-        return '비가 내려요. 우산 챙기세요.';    
-    } else if (LongPhrase.includes('때때로 비')) {
-        return '비가 내려요. 우산 챙기세요.';    
-    } else if (LongPhrase.includes('흐림') || LongPhrase.includes('흐려짐')) {
-        return '날씨가 흐려요.';
-    } else if (LongPhrase.includes('구름이 줄어듦')) {
-        return '구름이 줄어들고 있어요.';
+
+const getStyleTest = (Temperature) => {
+    if (Temperature <= 3) {
+        return '날씨가 추워요. 패딩 또는 두꺼운 아우터를 입으세요!';
+    } else if (Temperature >=4 && Temperature <= 8) {
+        return '쌀쌀한 날씨에요! 울코트, 히트텍, 기모를 입으세요!';
+    } else if (Temperature >=9 && Temperature <= 12) {
+        return '약간 써늘한 날씨에요! 자켓, 가디건을 입으세요!';    
+    } else if (Temperature >=13 && Temperature <= 17) {
+        return '산책하기 좋은 날씨에요! 얇은 가디건, 맨투맨을 입으세요!';    
+    } else if (Temperature >=18 && Temperature <= 20) {
+        return '봄이 왔어요! 블라우스, 긴팔, 면바지를 입으세요!';
+    } else if (Temperature >=21 && Temperature <= 23) {
+        return '여름이 왔어요! 반팔, 얇은 셔츠, 반바지를 입으세요!';
+    } else if (Temperature >=24) {
+        return '엄청 더워요! 민소매, 반팔, 반바지를 입으세요!';
     }
 };
 
@@ -52,8 +58,9 @@ const todayRender = () => {
     todayWeather.innerHTML = ''; // 이전의 날씨 정보를 초기화
 
     const forecast = weatherList[0]; // 첫 번째 날씨 예보 정보 가져오기
-    const Temperature = Math.round((forecast.Temperature.Metric.Value));
     const realFeelTemperature =  Math.round((forecast.RealFeelTemperature.Metric.Value));
+    const Temperature = Math.round((forecast.Temperature.Metric.Value));
+    const styleTest = getStyleTest(forecast.Temperature.Metric.Value);
 
     const forecastDetails = `<div class="today_address">서울특별시</div> 
     <div class="today_cont">${forecast.WeatherText}</div>       
@@ -63,7 +70,7 @@ const todayRender = () => {
             <li><span>체감 : </span>${realFeelTemperature}°</li>
             <li><span>바람 : </span>${forecast.Wind.Direction.Localized} ${forecast.Wind.Speed.Metric.Value}km/h</li>
         </ul>
-  
+        <div class="today_style">${styleTest}</div>  
     `;
     todayWeather.innerHTML = forecastDetails; // 가져온 날씨 정보를 HTML 요소에 넣기
 }
@@ -73,14 +80,14 @@ const todayAddRender = () => {
     todayAddWeather.innerHTML = ''; // 이전의 날씨 정보를 초기화
 
     const forecast = weatherList[0]; // 첫 번째 날씨 예보 정보 가져오기
-    const styleTest = getStyleTest(forecast.Day.LongPhrase);
+
 
     const minTemperature =  Math.round((forecast.Temperature.Minimum.Value));
     const maxTemperature =  Math.round((forecast.Temperature.Maximum.Value));
 
     const forecastAddDetails = `
             <div class="today_addTemperature"><span class="min">${minTemperature}°</span> / <span class="max">${maxTemperature}°</span></div>
-            <div class="today_style">${styleTest}</div>  
+        
     `;
     todayAddWeather.innerHTML = forecastAddDetails; // 가져온 날씨 정보를 HTML 요소에 넣기
 };

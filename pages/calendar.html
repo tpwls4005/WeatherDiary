@@ -51,8 +51,22 @@
         <div class="event-date">1st March 2024</div>
       </div>
       <div class="events"></div>
+      <div class="diary-container">
+        <h2>일기 작성</h2>
+        <form class="diary-form" id="diary-form">
+          <textarea id="diary-content" placeholder="일기 내용을 입력하세요"></textarea>
+          <button type="submit">저장</button>
+        </form>
+
+        <h2>일기 목록</h2>
+        <ul class="diary-list" id="diary-list">
+          <!-- 여기에 일기 목록이 동적으로 추가됩니다 -->
+        </ul>
+      </div>
     </div>
   </div>
+
+
   <!--알림 설정 영역-->
   <div class="alarm_popup_wrap">
     <div class="dim" onclick="dimClose()"></div>

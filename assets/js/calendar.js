@@ -9,12 +9,15 @@ const calendar = document.querySelector(".calendar"),
     eventDay = document.querySelector(".event-day"),
     eventDate = document.querySelector(".event-date"),
     eventsContainer = document.querySelector(".events");
+    let selectedEmotion = ""; // 선택한 감정을 저장하는 전역 변수
+
 
 let today = new Date();
 let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
 export let diaryLists = []
+
 
 const months = [
   "January",
@@ -36,6 +39,7 @@ getEvents();
 console.log(eventsArr);
 
 // Initialize the calendar
+// Initialize the calendar
 function initCalendar() {
   const firstDay = new Date(year, month, 1);
   const lastDay = new Date(year, month + 1, 0);
@@ -55,20 +59,23 @@ function initCalendar() {
 
   for (let i = 1; i <= lastDate; i++) {
     // Check if event is present on that day
+    // Check if event is present on that day
     let event = false;
     eventsArr.forEach((eventObj) => {
       if (
           eventObj.day === i &&
           eventObj.month === month + 1 &&
           eventObj.year === year
+    
       ) {
         event = true;
       }
-    });
+    })
     if (
         i === new Date().getDate() &&
         year === new Date().getFullYear() &&
         month === new Date().getMonth()
+
     ) {
       activeDay = i;
       getActiveDay(i);
@@ -95,6 +102,7 @@ function initCalendar() {
 }
 
 // Function to add month and year on prev and next button
+// Function to add month and year on prev and next button
 function prevMonth() {
   month--;
   if (month < 0) {
@@ -119,6 +127,7 @@ next.addEventListener("click", nextMonth);
 initCalendar();
 
 // Function to add active on day
+// Function to add active on day
 function addListner() {
   const days = document.querySelectorAll(".day");
   days.forEach((day) => {
@@ -127,12 +136,15 @@ function addListner() {
       updateEvents(Number(e.target.innerHTML));
       activeDay = Number(e.target.innerHTML);
       // Remove active
+      // Remove active
       days.forEach((day) => {
         day.classList.remove("active");
       });
       // If clicked prev-date or next-date switch to that month
+      // If clicked prev-date or next-date switch to that month
       if (e.target.classList.contains("prev-date")) {
         prevMonth();
+        // Add active to clicked day after month is changed
         // Add active to clicked day after month is changed
         setTimeout(() => {
           // Add active where no prev-date or next-date
@@ -214,6 +226,7 @@ function getActiveDay(date) {
 }
 
 // Function update events when a day is active
+// Function update events when a day is active
 function updateEvents(date) {
   let events = "";
   eventsArr.forEach((event) => {
@@ -221,6 +234,7 @@ function updateEvents(date) {
         date === event.day &&
         month + 1 === event.month &&
         year === event.year
+
     ) {
       event.events.forEach((event) => {
         events += `<div class="event">
@@ -238,6 +252,7 @@ function updateEvents(date) {
   if (events === "") {
     events = `<div class="no-event">
             <!--<h3></h3>-->
+            <!--<h3></h3>-->
         </div>`;
   }
   eventsContainer.innerHTML = events;
@@ -248,11 +263,16 @@ function updateEvents(date) {
 function addEventSubmit() {
   // 나머지 코드는 동일합니다.
 }
+// Function to add event
+function addEventSubmit() {
+  // 나머지 코드는 동일합니다.
+}
 
 function saveEvents() {
   localStorage.setItem("events", JSON.stringify(eventsArr));
 }
 
+// Function to get events from local storage
 // Function to get events from local storage
 function getEvents() {
   //check if events are already saved in local storage then return event else nothing

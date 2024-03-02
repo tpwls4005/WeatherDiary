@@ -12,6 +12,7 @@
           crossorigin="anonymous"></script>
   <link href="../assets/style/common.css" rel="stylesheet" />
   <link href="../assets/style/calendar.css" rel="stylesheet">
+  <link href="../assets/style/diary.css" rel="stylesheet">
 </head>
 <body>
 <div class="wrap">
@@ -55,6 +56,13 @@
         <h2>일기 작성</h2>
         <form class="diary-form" id="diary-form">
           <textarea id="diary-content" placeholder="일기 내용을 입력하세요"></textarea>
+          <div class="emotion_content">
+            <button id="emotionBtn1" type="button" class="btn btn-light"></button>
+            <button id="emotionBtn2" type="button" class="btn btn-light"></button>
+            <button id="emotionBtn3" type="button" class="btn btn-light"></button>
+            <button id="emotionBtn4" type="button" class="btn btn-light"></button>
+            <button id="emotionBtn5" type="button" class="btn btn-light"></button>
+          </div>
           <button type="submit">저장</button>
         </form>
 
@@ -98,5 +106,6 @@
 <script src="../assets/js/common.js"></script>
 <script src="../assets/js/sub.js"></script>      
 <script type="module" src="../assets/js/calendar.js"></script>
+<script src="../assets/js/diary.js"></script>
 </body>
 </html>

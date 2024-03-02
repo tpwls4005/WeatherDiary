@@ -1,6 +1,7 @@
 :root{
-    --primary-clr: #0080ff ;
-  }*{
+    --primary-clr: #FFC700 ;
+  }
+  *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,19 +15,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: burlywood ;
   }
-  
+  .wrap{
+    width:100%;
+    max-width: 1200px;
+  }
   .container{
     position: relative;
-    width: 1200px;
+    width: calc(100% - 32px);
+    max-width: 1200px;
     min-height: 850px;
     margin: 0 auto;
     padding: 5px;
-    color: saddlebrown;
+    color: #222;
     display: flex;
     border-radius: 10px;
-    background-color: lightskyblue;
   }
   .left{
     width: 60%;
@@ -40,7 +43,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    color : saddlebrown;
+    color : #222;
     border-radius: 5px;
     background-color: white;
   }
@@ -60,6 +63,10 @@
     height: 94%;
     left: calc(100% + 12px);
     background-color: rgb(245, 245, 210);
+  }
+  .calendar .date{
+      color:#222;
+      font-size: 1.2rem;
   }
   .calendar .month{
     width: 100%;
@@ -124,6 +131,7 @@
   .calendar .days .prev-date,
   .calendar .days .next-date {
     color: grey;
+    font-weight: 400;
   }
   .calendar .days .active{
     position: relative;
@@ -235,6 +243,7 @@
   .right .today-date .event-day {
     font-size: 2rem;
     font-weight: 500;
+    color:#222;
   }
   .right .today-date .event-date {
     font-size: 1rem;
@@ -514,3 +523,31 @@
     justify-content: center;
     padding: 20px;
   }
+  .writing_btn{
+    position: fixed;
+    right:5%;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+  }
+  .writing_btn a{
+    border-radius: 100%;
+    background-image: url(../image/icon_writing.svg);
+    background-color:#222;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 28px;
+    width: 50px;
+    height: 50px;
+    display: block;
+  }
+  .writing_btn a:hover{
+    background-color: var(--primary-clr);
+  }
+
+  @media screen and (max-width: 63rem) {
+    .writing_btn{
+      bottom: 70px;
+    }
+  }
+

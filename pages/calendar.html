@@ -9,6 +9,7 @@
           integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
           crossorigin="anonymous"></script>
   <link href="../assets/style/calendar.css" rel="stylesheet">
+  <link href="../assets/style/diary.css" rel="stylesheet" />
 </head>
 <body>
 <div class="container">
@@ -46,6 +47,31 @@
 
 
     <!-- diary 팝업창 부분-->
+    <section class="section">
+			<div class="diary_container">
+				<div class="diary_top">
+					<div class="diary_date">2024 - 02 - 27</div>
+					<div class="diary_weather">날씨 : 🌤️</div>
+				</div>
+				<div class="diary_area">
+					<div class="mb-3">
+						<input type="text" class="form-control" id="exampleFormControlTextarea1"
+						 size="60" placeholder="한 줄 일기를 작성하세요">
+					</div>
+				</div>
+				<div class="emotion_content">
+					<button id="buttonID" type="button" class="btn btn-light">😆</button>
+					<button id="buttonID" type="button" class="btn btn-light">😀</button>
+					<button id="buttonID" type="button" class="btn btn-light">🙂</button>
+					<button id="buttonID" type="button" class="btn btn-light">🙁</button>
+					<button id="buttonID" type="button" class="btn btn-light">😫</button>
+				</div>
+				<div class="diary_button">
+					<button type="button" id="submit_btn" class="btn btn-primary btn-sm">등록하기</button>
+				</div>
+			</div>
+		</section>
+
     <div class="events"></div>
     <div class="add-event-wrapper">
     </div>
@@ -54,6 +80,7 @@
             integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
             crossorigin="anonymous"></script>
     <script type="module" src="../assets/js/calendar.js"></script>
+    <script src="../assets/js/diary.js"></script>
   </div>
 </div>
 </body>

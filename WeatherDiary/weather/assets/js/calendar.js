@@ -35,8 +35,6 @@ const eventsArr = [];
 getEvents();
 console.log(eventsArr);
 
-// 나머지 코드는 동일합니다.
-
 
 function initCalendar() {
   const firstDay = new Date(year, month, 1);

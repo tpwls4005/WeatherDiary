@@ -14,7 +14,7 @@ let today = new Date();
 let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
-export let diaryLists = []
+
 
 const months = [
   "January",

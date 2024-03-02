@@ -1,32 +1,39 @@
-// 일기를 작성하고, 감정 이모티콘을 선택하여 그 날의 기분을 선택할 수 있다.
-// 등록하기 버튼을 눌러 해당 일자에 일기를 등록할 수 있다.
-
 let diaryText = document.getElementById("exampleFormControlTextarea1")
 let addButton = document.getElementById("submit_btn")
 let deleteButton = document.getElementById("delete_btn")
 let emotionContent = document.querySelector(".emotion_content")
 
-let diaryList = []
+console.log("나와요?")
+
+let diaryLists = []
 let myEmotion = ""
 addButton.disabled = true
 
+
 const addDiary = () => {
-	const newDiary = { content: diaryText.value, emotion: myEmotion }
-	diaryList.push(newDiary)
-	if (newDiary.content.value > 0) {
+	const newDiary = { 
+        content: diaryText.value, 
+        emotion: myEmotion,
+        id: randomId()
+    }
+	
+	if (newDiary.content.length > 0) {
 		addButton.disabled = false
+		diaryLists.push(newDiary)
+		diaryText.value = ""
+		myEmotion = ""
+		addButton.disabled = true
+		diaryText.focus()
+		alert(`saved!`)
+		renderDiary(diaryLists)
 	}
-	diaryText.value = ""
-	myEmotion = ""
-	addButton.disabled = true
-	diaryText.focus()
 
 	document.querySelectorAll(".emotion_content button").forEach(btn => {
 		btn.classList.remove("btn-clicked")
 	})
-	alert(`등록되었습니다!`)
 	console.log(`일기 내용 : ${newDiary.content}
-    감정 : ${newDiary.emotion}`)
+    감정 : ${newDiary.emotion}
+    id : ${randomId()}`)
 }
 addButton.addEventListener("click", addDiary)
 
@@ -54,3 +61,34 @@ const getSelectedEmotion = () => {
 }
 
 getSelectedEmotion()
+
+function renderDiary (listOfDiary){
+	let resultHTML  = " "
+	// let newDiaryList = []
+	for(let i = 0; i < listOfDiary.length; i++){
+		if (listOfDiary[i].content.length > 0){
+			resultHTML += `<div class="diary_list_box" id="diary_list">
+			<div>${listOfDiary[i].content}</div>
+			<button class="delete_diary_btn" onclick="diaryDelete('${listOfDiary[i].id}')"></button>
+		  </div>`
+		}
+	}
+	document.getElementById("diary_board").innerHTML = resultHTML
+}
+
+function diaryDelete (id) {
+	let newDeleteList = []
+	for (let i = 0; i < diaryLists.length; i++){
+		let currentDiary = diaryLists[i]
+
+		if (id != currentDiary.id) {
+			newDeleteList.push(currentDiary)
+		}
+	}
+	diaryLists = newDeleteList
+	renderDiary(diaryLists)
+}
+
+function randomId() {
+    return '-' + Math.random().toString(36).substr(2, 9)
+}

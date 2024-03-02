@@ -1,19 +1,17 @@
 //1. 날씨 api 불러오기
-// const API_KEY = 'nv6XTKu9utcGZSoAam5e2hKSAzUiHANi'
-// const API_KEY = 'lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7'
+const API_KEY = 'nv6XTKu9utcGZSoAam5e2hKSAzUiHANi'
+//const API_KEY = 'lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7'
+
 let weatherDetails = null
 let weatherHourlyDetails = []
 let weatherDailyDetails = []
 
-// let url = new URL()
-
 const getWeather = async () => {
    let url = new URL(
-      `http://dataservice.accuweather.com/currentconditions/v1/226081?apikey=lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7&language=ko-kr&details=true`
+      `http://dataservice.accuweather.com/currentconditions/v1/226081?apikey=${API_KEY}&language=ko-kr&details=true`
    )
    const response = await fetch(url)
    const data = await response.json()
-   console.log(data)
    weatherDetails = data[0]
    console.log('weatherDetails', weatherDetails)
 
@@ -23,14 +21,13 @@ const getWeather = async () => {
 getWeather()
 
 const getHourlyWeather = async () => {
-   let url2 = new URL(
-      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/226081?apikey=lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7&language=ko-kr&details=true&metric=true`
+   let url = new URL(
+      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`
    )
-   const response = await fetch(url2)
-   const data2 = await response.json()
-   console.log(data2)
-   weatherHourlyDetails = data2
-   console.log('weatherHourlyDetails', weatherHourlyDetails)
+   const response = await fetch(url)
+   const data = await response.json()
+   weatherHourlyDetails = data
+   // console.log('weatherHourlyDetails', weatherHourlyDetails)
 
    hourlyRender()
 }
@@ -38,14 +35,13 @@ const getHourlyWeather = async () => {
 getHourlyWeather()
 
 const getDailyWeather = async () => {
-   let url3 = new URL(
-      `http://dataservice.accuweather.com/forecasts/v1/daily/1day/226081?apikey=lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7&language=ko-kr&details=true&metric=true`
+   let url = new URL(
+      `http://dataservice.accuweather.com/forecasts/v1/daily/1day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`
    )
-   const response = await fetch(url3)
-   const data3 = await response.json()
-   console.log(data3)
-   weatherDailyDetails = data3
-   console.log('weatherDailyDetails', weatherDailyDetails)
+   const response = await fetch(url)
+   const data = await response.json()
+   weatherDailyDetails = data
+   // console.log('weatherDailyDetails', weatherDailyDetails)
 
    dailyRender()
 }
@@ -68,28 +64,33 @@ const currentRender = () => {
    ).textContent = `${weatherDetails.WeatherText}`
    document.querySelector(
       '#current_list2'
-   ).textContent = `${weatherDetails.RealFeelTemperature.Metric.Value}℃`
+   ).textContent = `${weatherDetails.RealFeelTemperature.Metric.Value}°`
    document.querySelector(
       '#current_list3'
    ).textContent = `${weatherDetails.RelativeHumidity}%`
    document.querySelector(
       '#current_list4'
    ).textContent = `${weatherDetails.Wind.Direction.Localized} ${weatherDetails.Wind.Speed.Metric.Value}km/h`
+   document.querySelector(
+      '#current_list5'
+   ).textContent = `${weatherDetails.PressureTendency.LocalizedText}`
 }
 
 const hourlyRender = () => {
    for (let i = 0; i <= 5; i++) {
       const imageSrc = getImageSrc(`${weatherHourlyDetails[i].IconPhrase}`)
 
-      document.querySelector('#hourly').innerHTML += `<div class="col-2">
+      document.querySelector('#hourly_list').innerHTML += `<div class="col-2">
         <div class="card" style="min-width: 10%">
             <p>+ ${i + 1}시간</p>
             <img src="${imageSrc}" class="card-img-top" alt="." />
             <div class="card-body">
                 <h5 class="card-title">${
                    weatherHourlyDetails[i].Temperature.Value
-                }</h5>
-                <p class="card-text">${weatherHourlyDetails[i].Rain.Value}</p>
+                }°</h5>
+                <p class="card-text"><i class="fa-solid fa-droplet"></i> ${
+                   weatherHourlyDetails[i].Rain.Value
+                }</p>
             </div>
         </div>
         </div>
@@ -129,11 +130,11 @@ const dailyRender = () => {
                                        <p class="card-text"><i class="fa-solid fa-caret-up"></i> ${moment(
                                           weatherDailyDetails.DailyForecasts[0]
                                              .Sun.Rise
-                                       ).format('LLL')}</p>
+                                       ).format('LT')}</p>
                                        <p class="card-text"><i class="fa-solid fa-caret-down"></i> ${moment(
                                           weatherDailyDetails.DailyForecasts[0]
                                              .Sun.Set
-                                       ).format('LLL')}</p>`
+                                       ).format('LT')}</p>`
 
    document.querySelector(
       '#etc_air'
@@ -146,7 +147,7 @@ const dailyRender = () => {
 const getImageSrc = (text) => {
    if (text.includes('맑음') || text.includes('화창')) {
       return '../assets/image/icon_sun.svg'
-   } else if (text.includes('흐림')) {
+   } else if (text.includes('흐림') || text.includes('구름')) {
       return '../assets/image/icon_cloud.svg'
    } else if (text.includes('안개')) {
       return '../assets/image/icon_mist.svg'
@@ -164,6 +165,11 @@ const getImageSrc = (text) => {
       return '../assets/image/icon_wind.svg'
    }
 }
+
+document.querySelector('#current_rotation').addEventListener('click', () => {
+   getWeather()
+   //console.log(getWeather())
+})
 
 // 3. 유저는 현재위치를 볼 수 있다.
 // 3-1. 그리고 수정버튼을 클릭 시 현재 위치를 변경할 수 있다.

@@ -1,11 +1,14 @@
+:root{
+    --primary-clr: #FFC700 ;
+}
 *{
-    font-family: "Pacifico", cursive;
+    font-family: "Pretendard","Hi Melody", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 body{
-    background-color: lightskyblue;
+    background-color: #fff;
 }
 
 .diary_container{
@@ -38,7 +41,7 @@ body{
     resize: none;
 }
 input::placeholder {
-    font-family: "Pacifico", cursive;
+    font-family: "Pretendard","Hi Melody", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -58,8 +61,12 @@ input::placeholder {
     font-size: medium;
     border-radius: 30px;
 }
-
-.emotion_content button {
+#emotionButton{ 
+   background-size: cover; 
+   width: 50px; 
+   height: 50px;
+}
+/* .emotion_content button {
     margin: 5px;
     margin-bottom: 10px;
     width: 60px;
@@ -67,14 +74,23 @@ input::placeholder {
     font-size: xx-large;
     border-radius: 30px;
     transition: background-color 0.3s ease;
-}
+    background-repeat: no-repeat;
+    background-size: 63px;
+    background-position: center;
+} */
 
-.emotion_content button.btn-clicked {
-    background-color: #0080ff;
-}
+/* .emotion_content button.btn-clicked {
+    background-color: var(--primary-clr);
+} */
+
+/* .input-group mb-3 {
+    width: 10px;
+    height: 10px;
+} */
+
 
 .btn-clicked {
-    background-color: #0080ff;
+    background-color: var(--primary-clr);
 }
 .diary_list_box{
     display: flex;

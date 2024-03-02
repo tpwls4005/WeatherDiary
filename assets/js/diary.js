@@ -1,7 +1,15 @@
 let diaryText = document.getElementById("exampleFormControlTextarea1")
 let addButton = document.getElementById("submit_btn")
 let deleteButton = document.getElementById("delete_btn")
-let emotionContent = document.querySelector(".emotion_content")
+let emotionButton = document.getElementById("emotionButton")
+let emotionContent = document.getElementById("emotionButton");
+
+if (emotionContent) {
+    emotionContent.addEventListener("click", event => {
+    })
+} else {
+    console.error("Cannot find the element with class 'btn.btn-outline-secondary.dropdown-toggle'");
+}
 
 console.log("나와요?")
 
@@ -16,18 +24,17 @@ const addDiary = () => {
         emotion: myEmotion,
         id: randomId()
     }
-	
-	if (newDiary.content.length > 0) {
-		addButton.disabled = false
-		diaryLists.push(newDiary)
-		diaryText.value = ""
-		myEmotion = ""
-		addButton.disabled = true
-		diaryText.focus()
-		alert(`saved!`)
-		renderDiary(diaryLists)
-	}
 
+		if (newDiary.content.length > 0) {
+			diaryLists.push(newDiary)
+			diaryText.value = ""
+			myEmotion = ""
+			// addButton.disabled = true
+			diaryText.focus()
+			alert(`saved!`)
+			renderDiary(diaryLists)
+		}
+	
 	document.querySelectorAll(".emotion_content button").forEach(btn => {
 		btn.classList.remove("btn-clicked")
 	})
@@ -37,12 +44,13 @@ const addDiary = () => {
 }
 addButton.addEventListener("click", addDiary)
 
+const selectEmotion = (imagePath) => {
+	emotionButton.style.backgroundImage =`url(${imagePath})`
+}
 const getSelectedEmotion = () => {
 	emotionContent.addEventListener("click", event => {
-		if (event.target.tagName === "BUTTON") {
-			
+		if (event.target.tagName === "A") {
             const clickedEmotion = event.target.textContent
-
 			const isClicked = event.target.classList.contains("btn-clicked")
 
 			document.querySelectorAll(".emotion_content button").forEach(btn => {
@@ -51,10 +59,10 @@ const getSelectedEmotion = () => {
 			if (!isClicked) {
 				myEmotion = clickedEmotion
 				event.target.classList.add("btn-clicked")
-                addButton.disabled = false
+   
 			} else {
 				myEmotion = ""
-                addButton.disabled = true
+    
 			}
 		}
 	})

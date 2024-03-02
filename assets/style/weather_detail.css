@@ -1,6 +1,7 @@
 body {
    margin: 0;
    padding: 0;
+   color: #222;
    background-color: #f7f7f7;
 }
 
@@ -61,6 +62,18 @@ main .container .row .col-4 .card .card-header i {
    padding-top: 0.25em;
 }
 
+main .container .row .col-4 .card #current_rotation {
+   width: 10%;
+   background-color: #fce696;
+   border: none;
+   float: right !important;
+}
+
+main .container .row .col-4 .card #current_rotation i {
+   font-size: 1.2rem;
+   padding: 0.2em 0;
+}
+
 main .container .row .col-4 .card img {
    width: 50%;
    height: 50%;
@@ -70,14 +83,13 @@ main .container .row .col-4 .card img {
 
 main .container .row .col-4 .card-body .card-text:nth-child(1) {
    font-size: 1.1rem;
-   color: #566573;
    text-align: center;
 }
 
 main .container .row .col-4 .card-body .card-text:nth-child(2) {
    font-size: 3.3rem;
    font-weight: bolder;
-   color: #d35400;
+   color: #dc0100;
    text-align: center;
    padding: 0.5em 0 0.7em 0;
 }
@@ -88,9 +100,7 @@ main .container .row .col-4 .card-body .list-group li span:nth-child(1) {
 }
 
 main .container .row .col-4 .card-body .list-group li span:nth-child(2) {
-   font-size: 1.5rem;
-   font-weight: bold;
-   color: #566573;
+   font-size: 1.2rem;
    padding: 1em 0;
    padding-left: 2em;
 }
@@ -102,7 +112,6 @@ main .container .row .col-8 {
 
 main .container .row .col-8 h2 {
    font-size: 1.8rem;
-   color: #454545;
    font-weight: bold;
    padding: 0.5em 0;
 }
@@ -117,12 +126,14 @@ main .container .row .col-8 .row {
 
 main .container .row .col-8 .row .col-2 {
    min-height: 30vh;
-   min-width: 5em;
+   min-width: 8em;
    margin: 0 auto;
 }
 
 main .container .row .col-8 .row .col-2 .card {
-   padding: 0.1em 0.3em;
+   padding: 0.1em 0.1em;
+   height: 90%;
+   min-width: 90%;
 }
 
 main .container .row .col-8 .row .col-2 .card > p {
@@ -133,33 +144,31 @@ main .container .row .col-8 .row .col-2 .card > p {
 
 main .container .row .col-8 .row .col-2 .card img {
    width: 80%;
+   max-height: 50%;
    margin: 0 auto;
+   padding-top: 1em;
+   padding-bottom: 0.5em;
 }
 
 main .container .row .col-8 .row .col-2 .card .card-body {
    display: flex;
    justify-content: space-between;
+   margin-bottom: 0.1em;
 }
 
 main .container .row .col-8 .row .col-2 .card .card-body h5 {
-   color: #dc7633;
+   font-size: 1.2rem;
+   color: #dc0100;
    font-weight: bold;
+}
+
+main .container .row .col-8 .row .col-2 .card .card-body p {
+   font-size: 0.8rem;
+   padding-top: 0.2em;
 }
 
 main .container .row .col-8 #highlight_dayAndNight .col .card .col-md-8 {
    text-align: center;
-}
-
-main
-   .container
-   .row
-   .col-8
-   #highlight_dayAndNight
-   .col
-   .card
-   .col-md-8
-   .card-body {
-   color: #566573;
 }
 
 main
@@ -186,7 +195,7 @@ main
    .col-md-8
    .card-body
    h5 {
-   font-size: 1.3rem;
+   font-size: 1.2rem;
    padding-bottom: 0.5em;
 }
 
@@ -208,7 +217,7 @@ main .container .row .col-8 #highlight_etc .col .card .col-md-8 {
 }
 
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body {
-   color: #566573;
+   min-height: 25vh;
 }
 
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body img {
@@ -217,7 +226,7 @@ main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body img {
 }
 
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body h5 {
-   font-size: 1.3rem;
+   font-size: 1.2rem;
    padding-bottom: 0.5em;
 }
 

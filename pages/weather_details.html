@@ -39,6 +39,11 @@
                               <i class="fa-solid fa-location-dot"></i>
                               <div id="current_location">서울특별시</div>
                            </div>
+                           <div>
+                              <button id="current_rotation">
+                                 <i class="fa-solid fa-arrows-rotate"></i>
+                              </button>
+                           </div>
                            <img
                               src="../assets/image/icon_sun.svg"
                               class="card-img-top"
@@ -68,6 +73,10 @@
                                     <span>풍속 &nbsp;</span>
                                     <span id="current_list4">1km/h</span>
                                  </li>
+                                 <li class="list-group-item">
+                                    <span>기압 &nbsp;</span>
+                                    <span id="current_list5">일정</span>
+                                 </li>
                               </ul>
                            </div>
                         </div>
@@ -79,14 +88,18 @@
                      <h2>
                         <i class="fa-solid fa-earth-americas"></i> 시간별 예보
                      </h2>
-                     <div class="row" id="hourly">
+                     <div class="row" id="hourly_list">
                         <!-- <div class="col-2">
                            <div class="card" style="min-width: 10%">
                               <p>+ 1시간</p>
-                              <img src="../assets/image/icon_cloud.svg" class="card-img-top" alt="." />
+                              <img
+                                 src="../assets/image/icon_cloud.svg"
+                                 class="card-img-top"
+                                 alt="."
+                              />
                               <div class="card-body">
-                                 <h5 class="card-title">기온°</h5>
-                                 <p class="card-text"><i class="fa-solid fa-droplet"></i>강수%</p>
+                                 <h5 class="card-title">기온</h5>
+                                 <p class="card-text">강수</p>
                               </div>
                            </div>
                         </div> -->
@@ -104,7 +117,7 @@
                                  <div class="col-md-4">
                                     <img
                                        src="../assets/image/day.jpeg"
-                                       class="img-fluid rounded-start"
+                                       class="img-fluid h-100 rounded-start"
                                        alt="."
                                     />
                                  </div>
@@ -140,7 +153,7 @@
                                  <div class="col-md-4">
                                     <img
                                        src="../assets/image/night.jpeg"
-                                       class="img-fluid rounded-start"
+                                       class="img-fluid h-100 rounded-start"
                                        alt="."
                                     />
                                  </div>
@@ -176,8 +189,8 @@
                               <div class="row g-0">
                                  <div class="col-md-4">
                                     <img
-                                       src="../assets/image/sunetc.jpg"
-                                       class="img-fluid rounded-start"
+                                       src="../assets/image/sunrise1.jpeg"
+                                       class="img-fluid h-100 rounded-start"
                                        alt="."
                                     />
                                  </div>
@@ -200,8 +213,8 @@
                               <div class="row g-0">
                                  <div class="col-md-4">
                                     <img
-                                       src="../assets/image/air3.jpg"
-                                       class="img-fluid rounded-start"
+                                       src="../assets/image/air_quality_1.png"
+                                       class="img-fluid h-100 rounded-start"
                                        alt="."
                                     />
                                  </div>

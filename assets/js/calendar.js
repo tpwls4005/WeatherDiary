@@ -17,7 +17,7 @@ let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
 export let diaryLists = []
-export let diaryLists = []
+
 
 const months = [
   "January",
@@ -66,20 +66,16 @@ function initCalendar() {
           eventObj.day === i &&
           eventObj.month === month + 1 &&
           eventObj.year === year
-          eventObj.day === i &&
-          eventObj.month === month + 1 &&
-          eventObj.year === year
+    
       ) {
         event = true;
       }
-    });
+    })
     if (
         i === new Date().getDate() &&
         year === new Date().getFullYear() &&
         month === new Date().getMonth()
-        i === new Date().getDate() &&
-        year === new Date().getFullYear() &&
-        month === new Date().getMonth()
+
     ) {
       activeDay = i;
       getActiveDay(i);
@@ -238,9 +234,7 @@ function updateEvents(date) {
         date === event.day &&
         month + 1 === event.month &&
         year === event.year
-        date === event.day &&
-        month + 1 === event.month &&
-        year === event.year
+
     ) {
       event.events.forEach((event) => {
         events += `<div class="event">

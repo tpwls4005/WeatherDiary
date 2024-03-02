@@ -3,196 +3,345 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-    font-family: "Pretendard","Hi Melody", sans-serif;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font: inherit;
+   vertical-align: baseline;
+   font-family: 'Pretendard', 'Hi Melody', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+   display: block;
 }
 body {
-	line-height: 1;
-    background:#f7f7f7;
+   line-height: 1;
+   background: #f7f7f7;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+   list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+   quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+   content: '';
+   content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+   border-collapse: collapse;
+   border-spacing: 0;
 }
-a{
-    text-decoration:none;
+a {
+   text-decoration: none;
 }
 * {
-    box-sizing: border-box;
+   box-sizing: border-box;
 }
-.body_wrap{
-    width:100%;
-    max-width:1000px;
-    margin:0 auto;
+img {
+   width: 100%;
 }
-#header{
-    background-color: rgba(247,247,247,0.5);
-    width: 100%;
-    height: auto;
-    z-index: 999;
+.body_wrap {
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
 }
-header{
-    width: calc(100% - 32px);
-    height: 80px;
-    margin:0 auto;
-    z-index:99;
+.page_title {
+   font-size: 0;
+   line-height: 0;
 }
-header.scroll{
-    height: 50px;
+#header {
+   background-color: rgba(247, 247, 247, 0.5);
+   width: 100%;
+   height: auto;
+   z-index: 999;
 }
-header.scroll .weather_logo{
-    width: 50px;
+header {
+   width: calc(100% - 32px);
+   height: 80px;
+   margin: 0 auto;
+   z-index: 99;
 }
-.weather_logo{
-    background-image: url("../image/logo.svg");
-    background-repeat:no-repeat;
-    background-size: contain;
-    width: 80px;
-    height: 80px;
+header.scroll {
+   height: 50px;
 }
-header.scroll .weather_logo{
-    background-image: url("../image/symbol.svg");
-    width: 50px;
-    height: 50px;
-    background-position: center;
+header.scroll .weather_logo {
+   width: 50px;
 }
-.weather_alarm{
-    position: absolute;
-    right:0;
-    top:50%;
-    transform: translateY(-50%);
-    background-image: url("../image/icon_alarm.svg");
-    background-repeat:no-repeat;
-    background-size: contain;
-    width: 30px;
-    height: 30px;
+.weather_logo {
+   background-image: url('../image/logo.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
+   width: 70px;
+   height: 70px;
 }
-.weather_alarm img{
-    width:28px;
+header.scroll .weather_logo {
+   background-image: url('../image/symbol.svg');
+   width: 50px;
+   height: 50px;
+   background-position: center;
 }
-.weather_logo{
-    width:80px;
+.weather_alarm {
+   position: absolute;
+   right: 16px;
+   top: 50%;
+   transform: translateY(-50%);
+   background-image: url('../image/icon_alarm.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
+   width: 30px;
+   height: 30px;
 }
-.top_category{
-    top:80px;
-    z-index:99;
-    padding: 20px 0;
+.weather_alarm img {
+   width: 28px;
 }
-.top_category.scroll{
-    top:50px;
-    padding: 10px 0 20px;
+.top_category {
+   top: 80px;
+   z-index: 99;
+   padding: 20px 0;
 }
-.top_category ul{
-    gap:20px;
+.top_category.scroll {
+   top: 50px;
+   padding: 0px 0 15px;
 }
-.top_category li a{
-    font-size:20px;
-    font-weight: 400;
-    color:#222;
-
+.top_category ul {
+   gap: 20px;
 }
-.top_category li.on a{
-    color:#E0AF00;
-    font-weight: 700;
+.top_category li a {
+   font-size: 1.1rem;
+   font-weight: 400;
+   color: #222;
 }
-.contain{
-    width:100%;
-    padding: 10px 16px 80px;  
+.top_category li.on a {
+   color: #e0af00;
+   font-weight: 700;
 }
-#footer{
-    display: none;
-    position: fixed;
-    left:50%;
-    width: 100%;
-    transform: translateX(-50%);
-    bottom:0;
-    background:#fff;
-    padding: 0 10%;
+.contain {
+   width: 100%;
+   padding: 10px 16px 80px;
 }
-.foo_nav .foo_list{
-    height: 50px;
-    width:100%;
+#footer {
+   display: none;
+   position: fixed;
+   left: 50%;
+   width: 100%;
+   transform: translateX(-50%);
+   bottom: 0;
+   background: #fff;
+   padding: 0 10%;
 }
-.foo_nav .foo_list li a{
-    display: block;
-    font-size:0;
-    line-height: 0;
-    width:30px;
-    height: 30px;
+.foo_nav .foo_list {
+   height: 50px;
+   width: 100%;
 }
-.foo_nav .foo_list li.foo_weather a{
-    background-image: url('../image/icon_home.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
+.foo_nav .foo_list li a {
+   display: block;
+   font-size: 0;
+   line-height: 0;
+   width: 30px;
+   height: 30px;
 }
-.foo_nav .foo_list li.foo_weather.on a{
-    background-image: url('../image/icon_home_on.svg');
+.foo_nav .foo_list li.foo_weather a {
+   background-image: url('../image/icon_home.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
 }
-.foo_nav .foo_list li.foo_weather_detail a{
-    background-image: url('../image/icon_weather.svg');
-    background-repeat: no-repeat;
-    background-size: contain; 
+.foo_nav .foo_list li.foo_weather.on a {
+   background-image: url('../image/icon_home_on.svg');
 }
-.foo_nav .foo_list li.foo_weather_detail.on a{
-    background-image: url('../image/icon_weather_on.svg');
+.foo_nav .foo_list li.foo_weather_detail a {
+   background-image: url('../image/icon_weather.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
 }
-.foo_nav .foo_list li.foo_diary a{
-    background-image: url('../image/icon_diary.svg');
-    background-repeat: no-repeat;
-    background-size: contain; 
+.foo_nav .foo_list li.foo_weather_detail.on a {
+   background-image: url('../image/icon_weather_on.svg');
 }
-.foo_nav .foo_list li.foo_diary.on a{
-    background-image: url('../image/icon_diary_on.svg');
+.foo_nav .foo_list li.foo_diary a {
+   background-image: url('../image/icon_diary.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
 }
-.foo_nav .foo_list li.foo_mypage a{
-    background-image: url('../image/icon_mypage.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
+.foo_nav .foo_list li.foo_diary.on a {
+   background-image: url('../image/icon_diary_on.svg');
 }
-.foo_nav .foo_list li.foo_mypage.on a{
-    background-image: url('../image/icon_mypage_on.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
+.foo_nav .foo_list li.foo_mypage a {
+   background-image: url('../image/icon_mypage.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+.foo_nav .foo_list li.foo_mypage.on a {
+   background-image: url('../image/icon_mypage_on.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
 }
 @media screen and (max-width: 63rem) {
-    .top_category{
-        display: none !important;
-    }
-    #footer{
-        display: block;
-    }
+   .top_category {
+      display: none !important;
+   }
+   #footer {
+      display: block;
+   }
+}
+.alarm_popup_wrap.on {
+   display: block;
+}
+.alarm_popup_wrap {
+   display: none;
+   width: 100%;
+   height: 100vh;
+   max-width: 1200px;
+   position: fixed;
+   left: 50%;
+   top: 0;
+   transform: translateX(-50%);
+   z-index: 999;
+}
+.dim {
+   width: 100%;
+   height: 100vh;
+   position: absolute;
+   left: 0;
+   top: 0;
+   background-color: rgba(0, 0, 0, 0.3);
+}
+.alarm_popup {
+   width: 100%;
+   padding: 50px;
+   border-radius: 30px;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   width: 80%;
+   max-width: 450px;
+   background: #fff;
+   text-align: center;
+}
+.alarm_popup .title {
+   font-size: 1.1em;
+   line-height: 1.5;
+   font-weight: 600;
+   margin-bottom: 20px;
+}
+.alarm_popup span {
+   font-size: 0.8rem;
+   font-weight: 400;
+}
+.alarm_btn {
+   width: 100%;
+}
+.alarm_select {
+   gap: 10px;
+   margin-bottom: 10px;
+}
+.alarm_cont {
+   position: relative;
+}
+.close_btn {
+   position: absolute;
+   right: 20px;
+   top: 20px;
+   background-image: url('../image/icon_close.svg');
+   background-repeat: no-repeat;
+   background-size: contain;
+   width: 30px;
+   height: 30px;
 }

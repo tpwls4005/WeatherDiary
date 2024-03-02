@@ -20,11 +20,11 @@
 
       <!-- css -->
       <link href="../assets/style/common.css" rel="stylesheet" />
-      <link href="../assets/style/sub.css" rel="stylesheet" />
       <link href="../assets/style/weather_detail.css" rel="stylesheet" />
    </head>
    <body>
       <div class="wrap">
+         <div class="page_title">오늘의 날씨</div>
          <!-- 헤더 -->
          <div id="header" class="position-sticky top-0 start-0"></div>
 
@@ -238,6 +238,45 @@
             </div>
          </main>
       </div>
+      <!--알림 설정 영역-->
+      <div class="alarm_popup_wrap">
+         <div class="dim" onclick="dimClose()"></div>
+         <div class="alarm_popup">
+            <div class="alarm_cont">
+               <div
+                  class="title d-flex flex-column justify-content-between align-items-center"
+               >
+                  알림 설정
+                  <span>날씨 알림 받으실 시간을 선택해주세요.</span>
+               </div>
+               <div
+                  class="alarm_select d-flex justify-content-between align-items-center"
+               >
+                  <select
+                     id="hourSelect"
+                     class="form-select"
+                     aria-label="Default select example"
+                  ></select
+                  >시
+                  <select
+                     id="minuteSelect"
+                     class="form-select"
+                     aria-label="Default select example"
+                  ></select
+                  >분
+               </div>
+               <button
+                  class="alarm_btn btn btn-dark"
+                  type="button"
+                  onclick="confirmAlarmBox()"
+               >
+                  확인
+               </button>
+            </div>
+            <div class="close_btn" onclick="closeAlarmBox()"></div>
+         </div>
+      </div>
+      <!--알림 설정 영역 끝-->
       <div id="footer"></div>
       <!-- 부트스트랩 JS (해당 라이브러리의 경우, JS script 상단에 적용 필요) -->
       <script

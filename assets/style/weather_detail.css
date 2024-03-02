@@ -7,6 +7,8 @@ body {
 
 .card {
    border: none;
+   overflow: hidden;
+   border-radius: 30px !important;
 }
 
 /* 헤더 */
@@ -51,15 +53,15 @@ main .container .row .col-4 .card {
 
 main .container .row .col-4 .card .card-header {
    display: flex;
-   font-size: 1.3em;
-   font-weight: bold;
+   font-size: 1.1rem;
+   font-weight: 600;
    border-bottom: none;
    padding: 1em;
+   align-items: center;
 }
 
 main .container .row .col-4 .card .card-header i {
    padding-right: 1em;
-   padding-top: 0.25em;
 }
 
 main .container .row .col-4 .card #current_rotation {
@@ -100,9 +102,10 @@ main .container .row .col-4 .card-body .list-group li span:nth-child(1) {
 }
 
 main .container .row .col-4 .card-body .list-group li span:nth-child(2) {
-   font-size: 1.2rem;
+   font-size: 1rem;
    padding: 1em 0;
    padding-left: 2em;
+   font-weight: 600;
 }
 
 main .container .row .col-8 {
@@ -111,39 +114,30 @@ main .container .row .col-8 {
 }
 
 main .container .row .col-8 h2 {
-   font-size: 1.8rem;
-   font-weight: bold;
-   padding: 0.5em 0;
+   font-size: 1.1rem;
+   font-weight: 600;
+   padding: 1em 0;
 }
 
 main .container .row .col-8 h2 i {
    padding-right: 0.3em;
 }
-
-main .container .row .col-8 .row {
-   min-height: 20vh;
+#hourly_list {
+   margin-bottom: 40px;
 }
-
 main .container .row .col-8 .row .col-2 {
-   min-height: 30vh;
-   min-width: 8em;
-   margin: 0 auto;
-}
-
-main .container .row .col-8 .row .col-2 .card {
-   padding: 0.1em 0.1em;
-   height: 90%;
-   min-width: 90%;
+   margin: 0 auto 0;
 }
 
 main .container .row .col-8 .row .col-2 .card > p {
    color: #999999;
    text-align: center;
-   padding-top: 1em;
+   padding-top: 2em;
+   font-size: 0.7rem;
 }
 
 main .container .row .col-8 .row .col-2 .card img {
-   width: 80%;
+   width: 40%;
    max-height: 50%;
    margin: 0 auto;
    padding-top: 1em;
@@ -152,12 +146,13 @@ main .container .row .col-8 .row .col-2 .card img {
 
 main .container .row .col-8 .row .col-2 .card .card-body {
    display: flex;
-   justify-content: space-between;
-   margin-bottom: 0.1em;
+   justify-content: center;
+   padding: 1rem 0.5rem;
+   gap: 5px;
 }
 
 main .container .row .col-8 .row .col-2 .card .card-body h5 {
-   font-size: 1.2rem;
+   font-size: 1rem;
    color: #dc0100;
    font-weight: bold;
 }
@@ -195,8 +190,9 @@ main
    .col-md-8
    .card-body
    h5 {
-   font-size: 1.2rem;
+   font-size: 1rem;
    padding-bottom: 0.5em;
+   font-weight: 600;
 }
 
 main
@@ -210,6 +206,7 @@ main
    .card-body
    p {
    line-height: 1.5em;
+   font-size: 0.8rem;
 }
 
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 {
@@ -226,10 +223,32 @@ main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body img {
 }
 
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body h5 {
-   font-size: 1.2rem;
+   font-size: 1rem;
    padding-bottom: 0.5em;
+   font-weight: 600;
 }
 
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body p {
    line-height: 1.5em;
+   font-size: 0.8rem;
+}
+@media screen and (max-width: 63rem) {
+   main .container .row .col-4,
+   main .container .row .col-8 {
+      width: 100% !important;
+   }
+   main .container .row .col-4 .card img {
+      width: 20%;
+      height: 20%;
+      margin: 0 auto;
+      padding: 2em 0;
+   }
+}
+@media screen and (max-width: 600px) {
+   main .container .row .col-8 .row .col-2 {
+      width: 32%;
+   }
+   main .container .row .col-8 .row > * {
+      padding-bottom: calc(var(--bs-gutter-x) * 0.5);
+   }
 }

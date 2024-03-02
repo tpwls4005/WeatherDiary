@@ -54,7 +54,7 @@ main .container .row .col-4 .card {
 main .container .row .col-4 .card .card-header {
    display: flex;
    font-size: 1.1rem;
-   font-weight: bold;
+   font-weight: 600;
    border-bottom: none;
    padding: 1em;
    align-items: center;
@@ -115,7 +115,7 @@ main .container .row .col-8 {
 
 main .container .row .col-8 h2 {
    font-size: 1.1rem;
-   font-weight: bold;
+   font-weight: 600;
    padding: 1em 0;
 }
 

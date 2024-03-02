@@ -27,9 +27,9 @@ const addDiary = () => {
 
 		if (newDiary.content.length > 0) {
 			diaryLists.push(newDiary)
+			addButton.disabled = false
 			diaryText.value = ""
 			myEmotion = ""
-			// addButton.disabled = true
 			diaryText.focus()
 			alert(`saved!`)
 			renderDiary(diaryLists)

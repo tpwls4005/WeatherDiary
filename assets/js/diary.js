@@ -7,7 +7,7 @@ let deleteButton = document.getElementById("delete_btn")
 let emotionContent = document.querySelector(".emotion_content")
 
 // 등록한 {content, emotion} 캘린더에 넘겨줘야한다
-// let diaryList = []
+import {diaryLists} from './calendar'
 let myEmotion = ""
 addButton.disabled = true
 

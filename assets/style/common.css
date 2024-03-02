@@ -88,8 +88,8 @@ header.scroll .weather_logo{
     background-image: url("../image/logo.svg");
     background-repeat:no-repeat;
     background-size: contain;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 }
 header.scroll .weather_logo{
     background-image: url("../image/symbol.svg");
@@ -111,9 +111,6 @@ header.scroll .weather_logo{
 .weather_alarm img{
     width:28px;
 }
-.weather_logo{
-    width:80px;
-}
 .top_category{
     top:80px;
     z-index:99;
@@ -121,7 +118,7 @@ header.scroll .weather_logo{
 }
 .top_category.scroll{
     top:50px;
-    padding: 10px 0 20px;
+    padding: 0px 0 15px;
 }
 .top_category ul{
     gap:20px;

@@ -5,92 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendar</title>
   <script src="https://kit.fontawesome.com/cf9e4d9f37.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
           integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
           crossorigin="anonymous"></script>
+  <link href="../assets/style/common.css" rel="stylesheet" />
   <link href="../assets/style/calendar.css" rel="stylesheet">
-  <!-- <link href="../assets/style/diary.css" rel="stylesheet" /> -->
+  <link href="../assets/style/diary.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-  <div class="left">
-    <div class="calendar">
-      <div class="month">
-        <i class="fas fa-angle-left prev"></i>
-        <div class="date">december 2015</div>
-        <i class="fas fa-angle-right next"></i>
-      </div>
-      <div class="weekdays">
-        <div>Sun</div>
-        <div>Mon</div>
-        <div>Tue</div>
-        <div>Wed</div>
-        <div>Thu</div>
-        <div>Fri</div>
-        <div>Sat</div>
-      </div>
-      <div class="days"></div>
-      <div class="goto-today">
-        <div class="goto">
-          <input type="text" placeholder="mm/yyyy" class="date-input"/>
-          <button class="goto-btn">Go</button>
+<div class="wrap">
+  <div class="page_title">일기</div>
+  <!-- 헤더 -->
+  <div id="header" class="position-sticky top-0 start-0"></div>  
+  <div class="container">
+    <div class="left">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">december 2015</div>
+          <i class="fas fa-angle-right next"></i>
         </div>
-        <button class="today-btn">Today</button>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+        <div class="goto-today">
+          <div class="goto">
+            <input type="text" placeholder="mm/yyyy" class="date-input"/>
+            <button class="goto-btn">Go</button>
+          </div>
+          <button class="today-btn">Today</button>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="today-date">
+        <div class="event-day">Fri</div>
+        <div class="event-date">1st March 2024</div>
+      </div>
+      <div class="events"></div>
+      <div class="diary-container">
+        <h2>일기 작성</h2>
+        <form class="diary-form" id="diary-form">
+          <textarea id="diary-content" placeholder="일기 내용을 입력하세요"></textarea>
+          <div class="emotion_content">
+            <button id="emotionBtn1" type="button" class="btn btn-light"></button>
+            <button id="emotionBtn2" type="button" class="btn btn-light"></button>
+            <button id="emotionBtn3" type="button" class="btn btn-light"></button>
+            <button id="emotionBtn4" type="button" class="btn btn-light"></button>
+            <button id="emotionBtn5" type="button" class="btn btn-light"></button>
+          </div>
+          <button type="submit">저장</button>
+        </form>
+
+        <h2>일기 목록</h2>
+        <ul class="diary-list" id="diary-list">
+          <!-- 여기에 일기 목록이 동적으로 추가됩니다 -->
+        </ul>
       </div>
     </div>
   </div>
-  <div class="right">
-    <div class="today-date">
-      <div class="event-day">Fri</div>
-      <div class="event-date">1st March 2024</div>
+
+
+  <!--알림 설정 영역-->
+  <div class="alarm_popup_wrap">
+    <div class="dim" onclick="dimClose()"></div>
+    <div class="alarm_popup">
+      <div class="alarm_cont">
+        <div class="title d-flex  flex-column justify-content-between align-items-center">알림 설정
+          <span>날씨 알림 받으실 시간을 선택해주세요.</span>
+        </div>
+        <div class="alarm_select d-flex justify-content-between align-items-center">
+          <select id="hourSelect"  class="form-select" aria-label="Default select example"></select>시
+          <select id="minuteSelect"  class="form-select" aria-label="Default select example"></select>분
+        </div>
+        <button class="alarm_btn btn btn-dark" type="button" onclick="confirmAlarmBox()">확인</button>
+      </div>
+      <div class="close_btn" onclick="closeAlarmBox()"></div>
     </div>
-
-
-    <!-- diary 팝업창 부분-->
-		<!-- <section class="section">
-			<div class="diary_container">
-				<div class="diary_top">
-					<div class="diary_date">2024 - 02 - 27</div>
-					<div class="diary_weather">weather : 🌤️</div>
-				</div>
-				<div class="diary_area">
-					<div class="mb-3">
-						<input type="text" class="form-control" id="exampleFormControlTextarea1"
-						 size="50" placeholder="write your story">
-					</div>
-				</div>
-				<div class="emotion_content">
-					<button id="buttonID" type="button" class="btn btn-light" >
-            <img class="emotion_btn" src="../assets/image/emotion1.jpg"></button>
-					<button id="buttonID" type="button" class="btn btn-light">
-            <img class="emotion_btn" src="../assets/image/emotion2.jpg"></button>
-					<button id="buttonID" type="button" class="btn btn-light">
-            <img class="emotion_btn" src="../assets/image/emotion3.jpg"></button>
-					<button id="buttonID" type="button" class="btn btn-light">
-            <img class="emotion_btn" src="../assets/image/emotion4.jpg"></button>
-					<button id="buttonID" type="button" class="btn btn-light">
-            <img class="emotion_btn" src="../assets/image/emotion5.jpg"></button>
-				</div>
-				<div class="diary_button">
-					<button type="button" id="submit_btn" class="btn btn-primary btn-sm">save</button>
-				</div>
-			</div>
-		</section>
-    <div id="diary_board">
-    </div> -->
-
-    <div class="events"></div>
-    <div class="add-event-wrapper">
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
-            integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
-            crossorigin="anonymous"></script>
-    <script type="module" src="../assets/js/calendar.js"></script>
-    <!-- <script src="../assets/js/diary.js"></script> -->
   </div>
+  <!--알림 설정 영역 끝-->
+  <div id="footer"></div>
+
+  <!--글쓰기 버튼-->
+  <div class="writing_btn"><a></a></div>
+
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+      crossorigin="anonymous"></script>
+<!-- javascript -->
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/sub.js"></script>      
+<script type="module" src="../assets/js/calendar.js"></script>
+<script src="../assets/js/diary.js"></script>
 </body>
 </html>
-
-

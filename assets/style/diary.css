@@ -66,18 +66,51 @@ input::placeholder {
    width: 50px; 
    height: 50px;
 }
-/* .emotion_content button {
+#emotionBtn1{
+    background-image: url(../image/emotion2-1.png);
+    background-repeat: no-repeat;
+    background-size: 65px;
+    background-position: center;
+    background-color: white;
+}
+#emotionBtn2{
+    background-image: url(../image/emotion2-2.png);
+    background-repeat: no-repeat;
+    background-size: 65px;
+    background-position: center;
+    background-color: white;
+}
+#emotionBtn3{
+    background-image: url(../image/emotion2-3.png);
+    background-repeat: no-repeat;
+    background-size: 65px;
+    background-position: center;
+    background-color: white;
+}
+#emotionBtn4{
+    background-image: url(../image/emotion2-4.png);
+    background-repeat: no-repeat;
+    background-size: 65px;
+    background-position: center;
+    background-color: white;
+}
+#emotionBtn5{
+    background-image: url(../image/emotion2-5.png);
+    background-repeat: no-repeat;
+    background-size: 65px;
+    background-position: center;
+    background-color: white;
+}
+.emotion_content button {
     margin: 5px;
     margin-bottom: 10px;
     width: 60px;
     height: 60px;
     font-size: xx-large;
-    border-radius: 30px;
+    /* border-radius: 90px; */
     transition: background-color 0.3s ease;
-    background-repeat: no-repeat;
-    background-size: 63px;
-    background-position: center;
-} */
+
+}
 
 /* .emotion_content button.btn-clicked {
     background-color: var(--primary-clr);

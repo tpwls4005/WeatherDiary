@@ -17,6 +17,7 @@ let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
 export let diaryLists = []
+export let diaryLists = []
 
 const months = [
   "January",
@@ -38,6 +39,7 @@ getEvents();
 console.log(eventsArr);
 
 // Initialize the calendar
+// Initialize the calendar
 function initCalendar() {
   const firstDay = new Date(year, month, 1);
   const lastDay = new Date(year, month + 1, 0);
@@ -57,9 +59,13 @@ function initCalendar() {
 
   for (let i = 1; i <= lastDate; i++) {
     // Check if event is present on that day
+    // Check if event is present on that day
     let event = false;
     eventsArr.forEach((eventObj) => {
       if (
+          eventObj.day === i &&
+          eventObj.month === month + 1 &&
+          eventObj.year === year
           eventObj.day === i &&
           eventObj.month === month + 1 &&
           eventObj.year === year
@@ -68,6 +74,9 @@ function initCalendar() {
       }
     });
     if (
+        i === new Date().getDate() &&
+        year === new Date().getFullYear() &&
+        month === new Date().getMonth()
         i === new Date().getDate() &&
         year === new Date().getFullYear() &&
         month === new Date().getMonth()
@@ -97,6 +106,7 @@ function initCalendar() {
 }
 
 // Function to add month and year on prev and next button
+// Function to add month and year on prev and next button
 function prevMonth() {
   month--;
   if (month < 0) {
@@ -121,6 +131,7 @@ next.addEventListener("click", nextMonth);
 initCalendar();
 
 // Function to add active on day
+// Function to add active on day
 function addListner() {
   const days = document.querySelectorAll(".day");
   days.forEach((day) => {
@@ -129,12 +140,15 @@ function addListner() {
       updateEvents(Number(e.target.innerHTML));
       activeDay = Number(e.target.innerHTML);
       // Remove active
+      // Remove active
       days.forEach((day) => {
         day.classList.remove("active");
       });
       // If clicked prev-date or next-date switch to that month
+      // If clicked prev-date or next-date switch to that month
       if (e.target.classList.contains("prev-date")) {
         prevMonth();
+        // Add active to clicked day after month is changed
         // Add active to clicked day after month is changed
         setTimeout(() => {
           // Add active where no prev-date or next-date
@@ -216,10 +230,14 @@ function getActiveDay(date) {
 }
 
 // Function update events when a day is active
+// Function update events when a day is active
 function updateEvents(date) {
   let events = "";
   eventsArr.forEach((event) => {
     if (
+        date === event.day &&
+        month + 1 === event.month &&
+        year === event.year
         date === event.day &&
         month + 1 === event.month &&
         year === event.year
@@ -240,6 +258,7 @@ function updateEvents(date) {
   if (events === "") {
     events = `<div class="no-event">
             <!--<h3></h3>-->
+            <!--<h3></h3>-->
         </div>`;
   }
   eventsContainer.innerHTML = events;
@@ -250,11 +269,16 @@ function updateEvents(date) {
 function addEventSubmit() {
   // 나머지 코드는 동일합니다.
 }
+// Function to add event
+function addEventSubmit() {
+  // 나머지 코드는 동일합니다.
+}
 
 function saveEvents() {
   localStorage.setItem("events", JSON.stringify(eventsArr));
 }
 
+// Function to get events from local storage
 // Function to get events from local storage
 function getEvents() {
   //check if events are already saved in local storage then return event else nothing
@@ -263,25 +287,6 @@ function getEvents() {
   }
   eventsArr.push(...JSON.parse(localStorage.getItem("events")));
 }
-
-// ... (기존 코드)
-
-// 감정 버튼
-const emotionBtns = document.querySelectorAll(".emotion_content button");
-emotionBtns.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    handleEmotionButtonClick(index + 1); // 버튼 인덱스 + 1은 감정 버튼의 ID와 일치하도록 조정
-  });
-});
-
-function handleEmotionButtonClick(emotionIndex) {
-  // 선택한 감정에 대한 처리를 수행합니다. (예: 변수에 저장)
-  console.log(`${emotionIndex}번 감정이 선택되었습니다.`);
-  // 이 정보는 일기를 저장할 때 활용할 수 있습니다.
-}
-
-// ... (기존 코드)
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("diary-form");
@@ -305,35 +310,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // 저장된 일기를 어딘가에 저장하는 로직을 추가할 수 있습니다.
     // 여기서는 단순히 일기 목록에 추가하도록 하겠습니다.
     const timestamp = new Date().toLocaleString();
-    const selectedEmotion = getSelectedEmotion();
     const diaryItem = createDiaryItem(content, timestamp);
     diaryList.appendChild(diaryItem);
-
-    eventsArr.push({
-      day: activeDay,
-      month: month + 1,
-      year: year,
-      events: [{
-        title: content,
-        time: timestamp,
-        emotion: selectedEmotion,
-      }],
-    });
-  
-    // 현재 활성화된 날짜의 일기 목록을 업데이트
-    updateEvents(activeDay);
-    saveEvents();
   }
-
-  function handleEmotionButtonClick(emotionIndex) {
-
-    console.log(`${selectedEmotion}이 선택되었습니다.`);
-  }
-  function getSelectedEmotion() {
-  return selectedEmotion;
-}
-
-  
 
   function createDiaryItem(content, timestamp) {
     const item = document.createElement("li");
@@ -357,3 +336,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // - 일기 삭제 기능
   // - 일기 로드 기능 (페이지가 새로고침되었을 때 저장된 일기를 불러오는 등)
 });
+

@@ -9,11 +9,13 @@
 
 body{
     background-color: #fff;
+    background-color: #fff;
 }
 
 .diary_container{
     display: flex;
     justify-content: center;
+    /* margin-top: 0px; */
     /* margin-top: 0px; */
     flex-direction: column;
     align-items: center;
@@ -24,6 +26,12 @@ body{
     flex-direction: row;
     align-items: center;
     border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+    /* background-color: white; */
+    border: 1.7px none black;
+}
+.diary_weather{
     margin: 5px;
     padding: 5px;
     /* background-color: white; */
@@ -53,8 +61,14 @@ input::placeholder {
     width: 60px;
     height: 60px
 }
+.emotion_btn{
+    background-repeat:no-repeat;
+    width: 60px;
+    height: 60px
+}
 .diary_button button{
     margin: 3px;
+    padding: 3px;
     padding: 3px;
     width: 80px;
     height: 50px;
@@ -104,6 +118,8 @@ input::placeholder {
 .emotion_content button {
     margin: 5px;
     margin-bottom: 10px;
+    margin: 5px;
+    margin-bottom: 10px;
     width: 60px;
     height: 60px;
     font-size: xx-large;
@@ -123,6 +139,27 @@ input::placeholder {
 
 
 .btn-clicked {
+    background-color: var(--primary-clr);
+}
+.diary_list_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    border: 1px solid white;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    font-size: 25px;
+}
+.delete_diary_btn{
+    margin: 3px;
+    padding: 3px;
+    width: 80px;
+    height: 50px;
+    font-size: medium;
+    border-radius: 30px;
     background-color: var(--primary-clr);
 }
 .diary_list_box{

@@ -1,4 +1,5 @@
-const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
+// const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
+const API_KEY = `IH2gk1Txd0lyoJXaRGnD996skbwQixXB`;
 let weatherList = [];
 
 const fetchWeatherData = async (url, dataHandler, renderCallback) => {
@@ -84,7 +85,7 @@ const todayRender = () => {
     const forecast = weatherList[0]; // 첫 번째 날씨 예보 정보 가져오기
     const realFeelTemperature =  Math.round((forecast.RealFeelTemperature.Metric.Value));
     const Temperature = Math.round((forecast.Temperature.Metric.Value));
-    const styleTest = getStyleTest(forecast.Temperature.Metric.Value);
+    const styleTest = getStyleTest(Math.round(forecast.Temperature.Metric.Value));
 
     const forecastDetails = `<div class="today_address">서울특별시</div> 
     <div class="today_cont">${forecast.WeatherText}</div>       

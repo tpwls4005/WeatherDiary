@@ -1,229 +1,237 @@
-const calendar = document.querySelector(".calendar"),
-  date = document.querySelector(".date"),
-  daysContainer = document.querySelector(".days"),
-  prev = document.querySelector(".prev"),
-  next = document.querySelector(".next"),
-  todayBtn = document.querySelector(".today-btn"),
-  gotoBtn = document.querySelector(".goto-btn"),
-  dateInput = document.querySelector(".date-input"),
-  eventDay = document.querySelector(".event-day"),
-  eventDate = document.querySelector(".event-date"),
-  eventsContainer = document.querySelector(".events");
+const calendar = document.querySelector('.calendar'),
+   date = document.querySelector('.date'),
+   daysContainer = document.querySelector('.days'),
+   prev = document.querySelector('.prev'),
+   next = document.querySelector('.next'),
+   todayBtn = document.querySelector('.today-btn'),
+   gotoBtn = document.querySelector('.goto-btn'),
+   dateInput = document.querySelector('.date-input'),
+   eventDay = document.querySelector('.event-day'),
+   eventDate = document.querySelector('.event-date'),
+   eventsContainer = document.querySelector('.events')
 
-let today = new Date();
-let activeDay;
-let month = today.getMonth();
-let year = today.getFullYear();
-
+let today = new Date()
+let activeDay
+let month = today.getMonth()
+let year = today.getFullYear()
+export let diaryLists = []
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+   'January',
+   'February',
+   'March',
+   'April',
+   'May',
+   'June',
+   'July',
+   'August',
+   'September',
+   'October',
+   'November',
+   'December',
+]
 
-const eventsArr = [];
-getEvents();
-console.log(eventsArr);
+const eventsArr = []
+getEvents()
+console.log(eventsArr)
 
-
+// Initialize the calendar
+// Initialize the calendar
 function initCalendar() {
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
-  const prevLastDay = new Date(year, month, 0);
-  const prevDays = prevLastDay.getDate();
-  const lastDate = lastDay.getDate();
-  const day = firstDay.getDay();
-  const nextDays = 7 - lastDay.getDay() - 1;
+   const firstDay = new Date(year, month, 1)
+   const lastDay = new Date(year, month + 1, 0)
+   const prevLastDay = new Date(year, month, 0)
+   const prevDays = prevLastDay.getDate()
+   const lastDate = lastDay.getDate()
+   const day = firstDay.getDay()
+   const nextDays = 7 - lastDay.getDay() - 1
 
-  date.innerHTML = months[month] + " " + year;
+   date.innerHTML = months[month] + ' ' + year
 
-  let days = "";
+   let days = ''
 
-  for (let x = day; x > 0; x--) {
-    days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
-  }
+   for (let x = day; x > 0; x--) {
+      days += `<div class="day prev-date">${prevDays - x + 1}</div>`
+   }
 
-  for (let i = 1; i <= lastDate; i++) {
-    //check if event is present on that day
-    let event = false;
-    eventsArr.forEach((eventObj) => {
+   for (let i = 1; i <= lastDate; i++) {
+      // Check if event is present on that day
+      // Check if event is present on that day
+      let event = false
+      eventsArr.forEach((eventObj) => {
+         if (
+            eventObj.day === i &&
+            eventObj.month === month + 1 &&
+            eventObj.year === year
+         ) {
+            event = true
+         }
+      })
       if (
-        eventObj.day === i &&
-        eventObj.month === month + 1 &&
-        eventObj.year === year
+         i === new Date().getDate() &&
+         year === new Date().getFullYear() &&
+         month === new Date().getMonth()
       ) {
-        event = true;
-      }
-    });
-    if (
-      i === new Date().getDate() &&
-      year === new Date().getFullYear() &&
-      month === new Date().getMonth()
-    ) {
-      activeDay = i;
-      getActiveDay(i);
-      updateEvents(i);
-      if (event) {
-        days += `<div class="day today active event">${i}</div>`;
+         activeDay = i
+         getActiveDay(i)
+         updateEvents(i)
+         if (event) {
+            days += `<div class="day today active event">${i}</div>`
+         } else {
+            days += `<div class="day today active">${i}</div>`
+         }
       } else {
-        days += `<div class="day today active">${i}</div>`;
+         if (event) {
+            days += `<div class="day event">${i}</div>`
+         } else {
+            days += `<div class="day ">${i}</div>`
+         }
       }
-    } else {
-      if (event) {
-        days += `<div class="day event">${i}</div>`;
-      } else {
-        days += `<div class="day ">${i}</div>`;
-      }
-    }
-  }
+   }
 
-  for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="day next-date">${j}</div>`;
-  }
-  daysContainer.innerHTML = days;
-  addListner();
+   for (let j = 1; j <= nextDays; j++) {
+      days += `<div class="day next-date">${j}</div>`
+   }
+   daysContainer.innerHTML = days
+   addListner()
 }
 
-//function to add month and year on prev and next button
+// Function to add month and year on prev and next button
+// Function to add month and year on prev and next button
 function prevMonth() {
-  month--;
-  if (month < 0) {
-    month = 11;
-    year--;
-  }
-  initCalendar();
+   month--
+   if (month < 0) {
+      month = 11
+      year--
+   }
+   initCalendar()
 }
 
 function nextMonth() {
-  month++;
-  if (month > 11) {
-    month = 0;
-    year++;
-  }
-  initCalendar();
+   month++
+   if (month > 11) {
+      month = 0
+      year++
+   }
+   initCalendar()
 }
 
-prev.addEventListener("click", prevMonth);
-next.addEventListener("click", nextMonth);
+prev.addEventListener('click', prevMonth)
+next.addEventListener('click', nextMonth)
 
-initCalendar();
+initCalendar()
 
-//function to add active on day
+// Function to add active on day
+// Function to add active on day
 function addListner() {
-  const days = document.querySelectorAll(".day");
-  days.forEach((day) => {
-    day.addEventListener("click", (e) => {
-      getActiveDay(e.target.innerHTML);
-      updateEvents(Number(e.target.innerHTML));
-      activeDay = Number(e.target.innerHTML);
-      //remove active
-      days.forEach((day) => {
-        day.classList.remove("active");
-      });
-      //if clicked prev-date or next-date switch to that month
-      if (e.target.classList.contains("prev-date")) {
-        prevMonth();
-        //add active to clicked day afte month is change
-        setTimeout(() => {
-          //add active where no prev-date or next-date
-          const days = document.querySelectorAll(".day");
-          days.forEach((day) => {
-            if (
-              !day.classList.contains("prev-date") &&
-              day.innerHTML === e.target.innerHTML
-            ) {
-              day.classList.add("active");
-            }
-          });
-        }, 100);
-      } else if (e.target.classList.contains("next-date")) {
-        nextMonth();
-        //add active to clicked day afte month is changed
-        setTimeout(() => {
-          const days = document.querySelectorAll(".day");
-          days.forEach((day) => {
-            if (
-              !day.classList.contains("next-date") &&
-              day.innerHTML === e.target.innerHTML
-            ) {
-              day.classList.add("active");
-            }
-          });
-        }, 100);
-      } else {
-        e.target.classList.add("active");
-      }
-    });
-  });
+   const days = document.querySelectorAll('.day')
+   days.forEach((day) => {
+      day.addEventListener('click', (e) => {
+         getActiveDay(e.target.innerHTML)
+         updateEvents(Number(e.target.innerHTML))
+         activeDay = Number(e.target.innerHTML)
+         // Remove active
+         // Remove active
+         days.forEach((day) => {
+            day.classList.remove('active')
+         })
+         // If clicked prev-date or next-date switch to that month
+         // If clicked prev-date or next-date switch to that month
+         if (e.target.classList.contains('prev-date')) {
+            prevMonth()
+            // Add active to clicked day after month is changed
+            // Add active to clicked day after month is changed
+            setTimeout(() => {
+               // Add active where no prev-date or next-date
+               const days = document.querySelectorAll('.day')
+               days.forEach((day) => {
+                  if (
+                     !day.classList.contains('prev-date') &&
+                     day.innerHTML === e.target.innerHTML
+                  ) {
+                     day.classList.add('active')
+                  }
+               })
+            }, 100)
+         } else if (e.target.classList.contains('next-date')) {
+            nextMonth()
+            // Add active to clicked day after month is changed
+            setTimeout(() => {
+               const days = document.querySelectorAll('.day')
+               days.forEach((day) => {
+                  if (
+                     !day.classList.contains('next-date') &&
+                     day.innerHTML === e.target.innerHTML
+                  ) {
+                     day.classList.add('active')
+                  }
+               })
+            }, 100)
+         } else {
+            e.target.classList.add('active')
+         }
+      })
+   })
 }
 
-todayBtn.addEventListener("click", () => {
-  today = new Date();
-  month = today.getMonth();
-  year = today.getFullYear();
-  initCalendar();
-});
+todayBtn.addEventListener('click', () => {
+   today = new Date()
+   month = today.getMonth()
+   year = today.getFullYear()
+   initCalendar()
+})
 
-dateInput.addEventListener("input", (e) => {
-  dateInput.value = dateInput.value.replace(/[^0-9/]/g, "");
-  if (dateInput.value.length === 2) {
-    dateInput.value += "/";
-  }
-  if (dateInput.value.length > 7) {
-    dateInput.value = dateInput.value.slice(0, 7);
-  }
-  if (e.inputType === "deleteContentBackward") {
-    if (dateInput.value.length === 3) {
-      dateInput.value = dateInput.value.slice(0, 2);
-    }
-  }
-});
+dateInput.addEventListener('input', (e) => {
+   dateInput.value = dateInput.value.replace(/[^0-9/]/g, '')
+   if (dateInput.value.length === 2) {
+      dateInput.value += '/'
+   }
+   if (dateInput.value.length > 7) {
+      dateInput.value = dateInput.value.slice(0, 7)
+   }
+   if (e.inputType === 'deleteContentBackward') {
+      if (dateInput.value.length === 3) {
+         dateInput.value = dateInput.value.slice(0, 2)
+      }
+   }
+})
 
-gotoBtn.addEventListener("click", gotoDate);
+gotoBtn.addEventListener('click', gotoDate)
 
 function gotoDate() {
-  console.log("here");
-  const dateArr = dateInput.value.split("/");
-  if (dateArr.length === 2) {
-    if (dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
-      month = dateArr[0] - 1;
-      year = dateArr[1];
-      initCalendar();
-      return;
-    }
-  }
-  alert("Invalid Date");
+   console.log('here')
+   const dateArr = dateInput.value.split('/')
+   if (dateArr.length === 2) {
+      if (dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
+         month = dateArr[0] - 1
+         year = dateArr[1]
+         initCalendar()
+         return
+      }
+   }
+   alert('Invalid Date')
 }
 
-//function get active day day name and date and update eventday eventdate
+// Function get active day day name and date and update eventday eventdate
 function getActiveDay(date) {
-  const day = new Date(year, month, date);
-  const dayName = day.toString().split(" ")[0];
-  eventDay.innerHTML = dayName;
-  eventDate.innerHTML = date + " " + months[month] + " " + year;
+   const day = new Date(year, month, date)
+   const dayName = day.toString().split(' ')[0]
+   eventDay.innerHTML = dayName
+   eventDate.innerHTML = date + ' ' + months[month] + ' ' + year
 }
 
-//function update events when a day is active
+// Function update events when a day is active
+// Function update events when a day is active
 function updateEvents(date) {
-  let events = "";
-  eventsArr.forEach((event) => {
-    if (
-      date === event.day &&
-      month + 1 === event.month &&
-      year === event.year
-    ) {
-      event.events.forEach((event) => {
-        events += `<div class="event">
+   let events = ''
+   eventsArr.forEach((event) => {
+      if (
+         date === event.day &&
+         month + 1 === event.month &&
+         year === event.year
+      ) {
+         event.events.forEach((event) => {
+            events += `<div class="event">
             <div class="title">
               <i class="fas fa-circle"></i>
               <h3 class="event-title">${event.title}</h3>
@@ -231,163 +239,139 @@ function updateEvents(date) {
             <div class="event-time">
               <span class="event-time">${event.time}</span>
             </div>
-        </div>`;
-      });
-    }
-  });
-  if (events === "") {
-    events = `<div class="no-event">
-            <h3>No Diary</h3>
-        </div>`;
-  }
-  eventsContainer.innerHTML = events;
-  saveEvents();
-}
-
-//function to add event
-addEventBtn.addEventListener("click", () => {
-  addEventWrapper.classList.toggle("active");
-});
-
-addEventCloseBtn.addEventListener("click", () => {
-  addEventWrapper.classList.remove("active");
-});
-
-document.addEventListener("click", (e) => {
-  if (e.target !== addEventBtn && !addEventWrapper.contains(e.target)) {
-    addEventWrapper.classList.remove("active");
-  }
-});
-
-//allow 50 chars in eventtitle
-addEventTitle.addEventListener("input", (e) => {
-  addEventTitle.value = addEventTitle.value.slice(0, 60);
-});
-
-function defineProperty() {
-  var osccred = document.createElement("div");
-  osccred.innerHTML =
-    "A Project By <a href='https://www.youtube.com/channel/UCiUtBDVaSmMGKxg1HYeK-BQ' target=_blank>Open Source Coding</a>";
-  osccred.style.position = "absolute";
-  osccred.style.bottom = "0";
-  osccred.style.right = "0";
-  osccred.style.fontSize = "10px";
-  osccred.style.color = "#ccc";
-  osccred.style.fontFamily = "sans-serif";
-  osccred.style.padding = "5px";
-  osccred.style.background = "#fff";
-  osccred.style.borderTopLeftRadius = "5px";
-  osccred.style.borderBottomRightRadius = "5px";
-  osccred.style.boxShadow = "0 0 5px #ccc";
-  document.body.appendChild(osccred);
-}
-
-defineProperty();
-
-//allow only time in eventtime from and to
-
-
-//function to add event to eventsArr
-addEventSubmit.addEventListener("click", () => {
-  const eventTitle = addEventTitle.value;
-  const eventTimeFrom = addEventFrom.value;
-  const eventTimeTo = addEventTo.value;
-  if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
-    alert("Please fill all the fields");
-    return;
-  }
-
-  //check correct time format 24 hour
-  const timeFromArr = eventTimeFrom.split(":");
-  const timeToArr = eventTimeTo.split(":");
-  if (
-    timeFromArr.length !== 2 ||
-    timeToArr.length !== 2 ||
-    timeFromArr[0] > 23 ||
-    timeFromArr[1] > 59 ||
-    timeToArr[0] > 23 ||
-    timeToArr[1] > 59
-  ) {
-    alert("Invalid Time Format");
-    return;
-  }
-
-  const timeFrom = convertTime(eventTimeFrom);
-  const timeTo = convertTime(eventTimeTo);
-
-  //check if event is already added
-  let eventExist = false;
-  eventsArr.forEach((event) => {
-    if (
-      event.day === activeDay &&
-      event.month === month + 1 &&
-      event.year === year
-    ) {
-      event.events.forEach((event) => {
-        if (event.title === eventTitle) {
-          eventExist = true;
-        }
-      });
-    }
-  });
-  if (eventExist) {
-    alert("Event already added");
-    return;
-  }
-  const newEvent = {
-    title: eventTitle,
-    time: timeFrom + " - " + timeTo,
-  };
-  console.log(newEvent);
-  console.log(activeDay);
-  let eventAdded = false;
-  if (eventsArr.length > 0) {
-    eventsArr.forEach((item) => {
-      if (
-        item.day === activeDay &&
-        item.month === month + 1 &&
-        item.year === year
-      ) {
-        item.events.push(newEvent);
-        eventAdded = true;
+        </div>`
+         })
       }
-    });
-  }
-
-  if (!eventAdded) {
-    eventsArr.push({
-      day: activeDay,
-      month: month + 1,
-      year: year,
-      events: [newEvent],
-    });
-  }
-
-  console.log(eventsArr);
-  addEventWrapper.classList.remove("active");
-  addEventTitle.value = "";
-  addEventFrom.value = "";
-  addEventTo.value = "";
-  updateEvents(activeDay);
-
-  const activeDayEl = document.querySelector(".day.active");
-  if (!activeDayEl.classList.contains("event")) {
-    activeDayEl.classList.add("event");
-  }
-});
-
-
+   })
+   if (events === '') {
+      events = ``
+   }
+   eventsContainer.innerHTML = events
+   saveEvents()
+}
 
 function saveEvents() {
-  localStorage.setItem("events", JSON.stringify(eventsArr));
+   localStorage.setItem('events', JSON.stringify(eventsArr))
 }
 
-//function to get events from local storage
+// Function to get events from local storage
+// Function to get events from local storage
 function getEvents() {
-  //check if events are already saved in local storage then return event else nothing
-  if (localStorage.getItem("events") === null) {
-    return;
-  }
-  eventsArr.push(...JSON.parse(localStorage.getItem("events")));
+   //check if events are already saved in local storage then return event else nothing
+   if (localStorage.getItem('events') === null) {
+      return
+   }
+   eventsArr.push(...JSON.parse(localStorage.getItem('events')))
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+   const form = document.getElementById('diary-form')
+   const contentInput = document.getElementById('diary-content')
+   const diaryList = document.getElementById('diary-list')
+   const emotionButtons = document.querySelectorAll('.btn-light') // 이모지 버튼 선택
+
+   let selectedEmojiSrc = '' // 선택된 이모지의 이미지 경로를 저장하는 변수
+
+   //이모지 버튼 클릭 시 선택된 이모지의 이미지 경로를 저장합니다.
+   emotionButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+         //선택한 버튼의 .on이 붙은 클래스로 가져온다.
+         emotionButtons.forEach((button) => button.classList.remove('on'))
+         button.classList.add('on')
+
+         //가져온 클래스의 이미지 url로 Src 속성 저장한다.
+         const buttonOnStyle = window.getComputedStyle(button)
+         selectedEmojiSrc = buttonOnStyle
+            .getPropertyValue('background-image')
+            .slice(5, -2)
+      })
+   })
+
+   form.addEventListener('submit', function (event) {
+      event.preventDefault()
+
+      const content = contentInput.value.trim()
+      if (content === '') {
+         alert('일기 내용을 입력하세요.')
+         return
+      }
+
+      // 날짜 기록
+      const timesDate = new Date()
+      const timesHour = timesDate.getHours()
+      const timesMinutes = timesDate.getMinutes()
+      const timestamp = `${timesHour} : ${timesMinutes}`
+
+      saveDiary(content, timestamp, selectedEmojiSrc)
+      contentInput.value = ''
+      // 일기를 저장한 후, 선택한 이모지 초기화하도록 합니다.
+      selectedEmojiSrc = ''
+      emotionButtons.forEach((button) => button.classList.remove('on'))
+   })
+
+   function saveDiary(content, timestamp, emojiSrc) {
+      // 저장된 일기를 어딘가에 저장하는 로직을 추가할 수 있습니다.
+      const diaryItem = createDiaryItem(content, timestamp, emojiSrc)
+      diaryList.appendChild(diaryItem)
+   }
+
+   function createDiaryItem(content, timestamp, emojiSrc) {
+      // 이모지 예외 처리합니다. (선택된 이미지 없을 시(즉, 별도 지정된 scr 없을 시) 이미지 부분 제외 처리)
+      let emojiContent = !emojiSrc
+         ? ''
+         : `<div class="diary-emoji"><img src="${emojiSrc}" alt="이모지" /></div>`
+
+      const itemHTML = `
+    <div class="diary-item">
+      <div class="diary-itemBox">
+        ${emojiContent}
+        <div class="diary-contentWrap">
+          <p class="diary-content">${content}</p>
+          <p class="diary-timestamp">${timestamp}</p>
+        </div>
+      </div>
+      <div class="diary-close"></div>
+    </div>
+  `
+
+      diaryWrap.classList.remove('on')
+
+      // 생성한 HTML 문자열을 DOM 요소로 변환
+      const tempDiv = document.createElement('div')
+      tempDiv.innerHTML = itemHTML.trim()
+
+      // diary-close에 클릭 이벤트 리스너 추가
+      tempDiv
+         .querySelector('.diary-close')
+         .addEventListener('click', diaryClose)
+
+      // 첫 번째 자식 요소를 반환
+      return tempDiv.firstChild
+   }
+})
+
+//팝업으로 띄우기
+let diaryWrap = document.querySelector('.diary-wrap')
+let writingBtn = document.querySelector('.writing_btn')
+let diaryWrapDim = document.querySelector('.diary-wrap .dim')
+
+writingBtn.addEventListener('click', diaryWriteEvent)
+diaryWrapDim.addEventListener('click', dimClose2)
+
+function diaryWriteEvent() {
+   if (diaryWrap.classList.contains('on')) {
+      diaryWrap.classList.remove('on')
+   } else {
+      diaryWrap.classList.add('on')
+   }
+}
+
+function dimClose2() {
+   diaryWrap.classList.remove('on')
+}
+
+// diary-item을 삭제하는 함수
+function diaryClose(e) {
+   const diaryItem = e.target.closest('.diary-item')
+   diaryItem.remove()
+}

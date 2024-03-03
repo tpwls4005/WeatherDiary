@@ -122,18 +122,19 @@ main .container .row .col-8 h2 {
 main .container .row .col-8 h2 i {
    padding-right: 0.3em;
 }
-#hourly_list {
-   margin-bottom: 40px;
+#hourly_list{
+   margin-bottom:40px;
 }
 main .container .row .col-8 .row .col-2 {
    margin: 0 auto 0;
 }
 
+
 main .container .row .col-8 .row .col-2 .card > p {
    color: #999999;
    text-align: center;
    padding-top: 2em;
-   font-size: 0.7rem;
+   font-size:0.7rem;
 }
 
 main .container .row .col-8 .row .col-2 .card img {
@@ -148,7 +149,7 @@ main .container .row .col-8 .row .col-2 .card .card-body {
    display: flex;
    justify-content: center;
    padding: 1rem 0.5rem;
-   gap: 5px;
+   gap:5px;
 }
 
 main .container .row .col-8 .row .col-2 .card .card-body h5 {
@@ -206,7 +207,7 @@ main
    .card-body
    p {
    line-height: 1.5em;
-   font-size: 0.8rem;
+   font-size:0.8rem;
 }
 
 main .container .row .col-8 #highlight_etc .col .card .col-md-8 {
@@ -234,21 +235,22 @@ main .container .row .col-8 #highlight_etc .col .card .col-md-8 .card-body p {
 }
 @media screen and (max-width: 63rem) {
    main .container .row .col-4,
-   main .container .row .col-8 {
-      width: 100% !important;
+   main .container .row .col-8{
+      width:100% !important;
    }
    main .container .row .col-4 .card img {
       width: 20%;
       height: 20%;
       margin: 0 auto;
       padding: 2em 0;
-   }
+  }
 }
 @media screen and (max-width: 600px) {
-   main .container .row .col-8 .row .col-2 {
-      width: 32%;
+   main .container .row .col-8 .row .col-2{
+      width:32%;
    }
-   main .container .row .col-8 .row > * {
-      padding-bottom: calc(var(--bs-gutter-x) * 0.5);
+   main .container .row .col-8 .row>*{
+      padding-bottom: calc(var(--bs-gutter-x) * .5);
    }
+
 }

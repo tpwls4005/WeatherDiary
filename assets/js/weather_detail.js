@@ -1,14 +1,15 @@
 //1. 날씨 api 불러오기
-const API_KEY = 'nv6XTKu9utcGZSoAam5e2hKSAzUiHANi'
-//const API_KEY = 'lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7'
+// const API_KEY = 'nv6XTKu9utcGZSoAam5e2hKSAzUiHANi'
+const API_KEY = 'lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7'
 
 let weatherDetails = null
 let weatherHourlyDetails = []
 let weatherDailyDetails = []
 
+const BASE_URL = 'https://musical-puppy-68f92c.netlify.app';
 const getWeather = async () => {
    let url = new URL(
-      `http://dataservice.accuweather.com/currentconditions/v1/226081?apikey=${API_KEY}&language=ko-kr&details=true`
+      `${BASE_URL}/currentconditions/v1/226081?apikey=${API_KEY}&language=ko-kr&details=true`
    )
    const response = await fetch(url)
    const data = await response.json()
@@ -22,7 +23,7 @@ getWeather()
 
 const getHourlyWeather = async () => {
    let url = new URL(
-      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`
+      `${BASE_URL}/forecasts/v1/hourly/12hour/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`
    )
    const response = await fetch(url)
    const data = await response.json()
@@ -36,7 +37,7 @@ getHourlyWeather()
 
 const getDailyWeather = async () => {
    let url = new URL(
-      `http://dataservice.accuweather.com/forecasts/v1/daily/1day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`
+      `${BASE_URL}/forecasts/v1/daily/1day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`
    )
    const response = await fetch(url)
    const data = await response.json()

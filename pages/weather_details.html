@@ -5,7 +5,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>weather_details</title>
       <!-- fontawesome -->
-      <script src="https://kit.fontawesome.com/cf9e4d9f37.js" crossorigin="anonymous"></script>
+      <script
+         src="https://kit.fontawesome.com/cf9e4d9f37.js"
+         crossorigin="anonymous"
+      ></script>
 
       <!-- 부트스트랩 -->
       <link
@@ -16,12 +19,12 @@
       />
 
       <!-- css -->
-      <link href="../assets/style/common.css" rel="stylesheet">
-      <link href="../assets/style/sub.css" rel="stylesheet">
+      <link href="../assets/style/common.css" rel="stylesheet" />
       <link href="../assets/style/weather_detail.css" rel="stylesheet" />
    </head>
    <body>
       <div class="wrap">
+         <div class="page_title">오늘의 날씨</div>
          <!-- 헤더 -->
          <div id="header" class="position-sticky top-0 start-0"></div>
 
@@ -36,10 +39,23 @@
                               <i class="fa-solid fa-location-dot"></i>
                               <div id="current_location">서울특별시</div>
                            </div>
-                           <img src="../assets/image/icon_sun.svg" class="card-img-top" alt="." />
+                           <div>
+                              <button id="current_rotation">
+                                 <i class="fa-solid fa-arrows-rotate"></i>
+                              </button>
+                           </div>
+                           <img
+                              src="../assets/image/icon_sun.svg"
+                              class="card-img-top"
+                              alt="."
+                           />
                            <div class="card-body">
-                              <p class="card-text" id="current_date">현재 시각</p>
-                              <p class="card-text" id="current_temperature">현재 기온</p>
+                              <p class="card-text" id="current_date">
+                                 현재 시각
+                              </p>
+                              <p class="card-text" id="current_temperature">
+                                 현재 기온
+                              </p>
                               <ul class="list-group list-group-flush">
                                  <li class="list-group-item">
                                     <span>기상 &nbsp;</span>
@@ -57,6 +73,10 @@
                                     <span>풍속 &nbsp;</span>
                                     <span id="current_list4">1km/h</span>
                                  </li>
+                                 <li class="list-group-item">
+                                    <span>기압 &nbsp;</span>
+                                    <span id="current_list5">일정</span>
+                                 </li>
                               </ul>
                            </div>
                         </div>
@@ -65,12 +85,18 @@
 
                   <div class="col-8">
                      <!-- 시간별 예보 -->
-                     <h2><i class="fa-solid fa-earth-americas"></i> 시간별 예보</h2>
-                     <div class="row" id="hourly">
+                     <h2>
+                        <i class="fa-solid fa-earth-americas"></i> 시간별 예보
+                     </h2>
+                     <div class="row" id="hourly_list">
                         <!-- <div class="col-2">
                            <div class="card" style="min-width: 10%">
                               <p>+ 1시간</p>
-                              <img src="../assets/image/icon_cloud.svg" class="card-img-top" alt="." />
+                              <img
+                                 src="../assets/image/icon_cloud.svg"
+                                 class="card-img-top"
+                                 alt="."
+                              />
                               <div class="card-body">
                                  <h5 class="card-title">기온</h5>
                                  <p class="card-text">강수</p>
@@ -80,22 +106,42 @@
                      </div>
 
                      <!-- 오늘의 하이라이트 -->
-                     <h2><i class="fa-solid fa-earth-americas"></i> 오늘의 하이라이트</h2>
+                     <h2>
+                        <i class="fa-solid fa-earth-americas"></i> 오늘의
+                        하이라이트
+                     </h2>
                      <div class="row" id="highlight_dayAndNight">
                         <div class="col">
                            <div class="card mb-3" style="max-width: 540px">
                               <div class="row g-0">
                                  <div class="col-md-4">
-                                    <img src="../assets/image/day.jpeg" class="img-fluid rounded-start" alt="." />
+                                    <img
+                                       src="../assets/image/day.jpeg"
+                                       class="img-fluid h-100 rounded-start"
+                                       alt="."
+                                    />
                                  </div>
                                  <div class="col-md-8">
                                     <div class="card-body" id="day_summary">
-                                       <img src="../assets/image/icon_sun.svg" alt="" />
+                                       <img
+                                          src="../assets/image/icon_sun.svg"
+                                          alt=""
+                                       />
                                        <h5 class="card-title">맑음</h5>
 
-                                       <p class="card-text"><i class="fa-solid fa-temperature-three-quarters"></i> 1° / 10°</p>
-                                       <p class="card-text"><i class="fa-solid fa-droplet"></i> 10%</p>
-                                       <p class="card-text"><i class="fa-solid fa-wind"></i> 1.3</p>
+                                       <p class="card-text">
+                                          <i
+                                             class="fa-solid fa-temperature-three-quarters"
+                                          ></i>
+                                          1° / 10°
+                                       </p>
+                                       <p class="card-text">
+                                          <i class="fa-solid fa-droplet"></i>
+                                          10%
+                                       </p>
+                                       <p class="card-text">
+                                          <i class="fa-solid fa-wind"></i> 1.3
+                                       </p>
                                     </div>
                                  </div>
                               </div>
@@ -105,15 +151,32 @@
                            <div class="card mb-3" style="max-width: 540px">
                               <div class="row g-0">
                                  <div class="col-md-4">
-                                    <img src="../assets/image/night.jpeg" class="img-fluid rounded-start" alt="." />
+                                    <img
+                                       src="../assets/image/night.jpeg"
+                                       class="img-fluid h-100 rounded-start"
+                                       alt="."
+                                    />
                                  </div>
                                  <div class="col-md-8">
                                     <div class="card-body" id="night_summary">
-                                       <img src="../assets/image/icon_sun.svg" alt="" />
+                                       <img
+                                          src="../assets/image/icon_sun.svg"
+                                          alt=""
+                                       />
                                        <h5 class="card-title">맑음</h5>
-                                       <p class="card-text"><i class="fa-solid fa-temperature-three-quarters"></i> 1° / 10°</p>
-                                       <p class="card-text"><i class="fa-solid fa-droplet"></i> 10%</p>
-                                       <p class="card-text"><i class="fa-solid fa-wind"></i> 1.3</p>
+                                       <p class="card-text">
+                                          <i
+                                             class="fa-solid fa-temperature-three-quarters"
+                                          ></i>
+                                          1° / 10°
+                                       </p>
+                                       <p class="card-text">
+                                          <i class="fa-solid fa-droplet"></i>
+                                          10%
+                                       </p>
+                                       <p class="card-text">
+                                          <i class="fa-solid fa-wind"></i> 1.3
+                                       </p>
                                     </div>
                                  </div>
                               </div>
@@ -125,14 +188,21 @@
                            <div class="card mb-3" style="max-width: 540px">
                               <div class="row g-0">
                                  <div class="col-md-4">
-                                    <img src="..." class="img-fluid rounded-start" alt="..." />
+                                    <img
+                                       src="../assets/image/sunrise1.jpeg"
+                                       class="img-fluid h-100 rounded-start"
+                                       alt="."
+                                    />
                                  </div>
                                  <div class="col-md-8">
-                                    <div class="card-body">
-                                       <img src="../assets/image/sun.png" alt="" />
+                                    <div class="card-body" id="etc_sun">
+                                       <img
+                                          src="../assets/image/sun.png"
+                                          alt="."
+                                       />
                                        <h5 class="card-title">일출 / 일몰</h5>
-                                       <p class="card-text">일출 시간</p>
-                                       <p class="card-text">일몰 시간</p>
+                                       <p class="card-text">일출시간</p>
+                                       <p class="card-text">일몰시간</p>
                                     </div>
                                  </div>
                               </div>
@@ -142,12 +212,20 @@
                            <div class="card mb-3" style="max-width: 540px">
                               <div class="row g-0">
                                  <div class="col-md-4">
-                                    <img src="..." class="img-fluid rounded-start" alt="..." />
+                                    <img
+                                       src="../assets/image/air_quality_1.png"
+                                       class="img-fluid h-100 rounded-start"
+                                       alt="."
+                                    />
                                  </div>
                                  <div class="col-md-8">
-                                    <div class="card-body">
-                                       <h5 class="card-title">대기질</h5>
-                                       <p class="card-text">대기오염</p>
+                                    <div class="card-body" id="etc_air">
+                                       <img
+                                          src="../assets/image/air.png"
+                                          alt="."
+                                       />
+                                       <h5 class="card-title">대기</h5>
+                                       <p class="card-text">대기질</p>
                                        <p class="card-text">자외선</p>
                                     </div>
                                  </div>
@@ -160,18 +238,38 @@
             </div>
          </main>
       </div>
+      <!--알림 설정 영역-->
+<div class="alarm_popup_wrap">
+   <div class="dim" onclick="dimClose()"></div>
+   <div class="alarm_popup">
+     <div class="alarm_cont">
+       <div class="title d-flex  flex-column justify-content-between align-items-center">알림 설정
+         <span>날씨 알림 받으실 시간을 선택해주세요.</span>
+       </div>
+       <div class="alarm_select d-flex justify-content-between align-items-center">
+         <select id="hourSelect"  class="form-select" aria-label="Default select example"></select>시
+         <select id="minuteSelect"  class="form-select" aria-label="Default select example"></select>분
+       </div>
+       <button class="alarm_btn btn btn-dark" type="button" onclick="confirmAlarmBox()">확인</button>
+     </div>
+     <div class="close_btn" onclick="closeAlarmBox()"></div>
+   </div>
+ </div>
+ <!--알림 설정 영역 끝-->
       <div id="footer"></div>
       <!-- 부트스트랩 JS (해당 라이브러리의 경우, JS script 상단에 적용 필요) -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
-      crossorigin="anonymous"></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+         integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+         crossorigin="anonymous"
+      ></script>
 
       <!-- moment js -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
 
       <!-- javascript -->
-      <script src="../assets/js/common.js"></script>   
-      <script src="../assets/js/sub.js"></script>  
+      <script src="../assets/js/common.js"></script>
+      <script src="../assets/js/sub.js"></script>
       <script src="../assets/js/weather_detail.js"></script>
    </body>
 </html>

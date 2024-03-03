@@ -1,4 +1,5 @@
-const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
+// const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
+const API_KEY = `IH2gk1Txd0lyoJXaRGnD996skbwQixXB`;
 let weatherList = [];
 
 const fetchWeatherData = async (url, dataHandler, renderCallback) => {
@@ -50,6 +51,33 @@ const getStyleTest = (Temperature) => {
     }
 };
 
+const getTodayLeftImg = (LongPhrase) => {
+    if (LongPhrase.includes('추움')) {
+        return '../weatherdiary/assets/image/weather_img_1_1.png';
+    } else if (LongPhrase.includes('눈')) {
+        return '../weatherdiary/assets/image/weather_img_4_1.png';
+    } else if (LongPhrase.includes('비')) {
+        return '../weatherdiary/assets/image/weather_img_2_1.png';    
+    } else if (LongPhrase.includes('흐림') || LongPhrase.includes('흐려짐')) {
+        return '../weatherdiary/assets/image/weather_img_6_1.png';    
+    } else if (TLongPhrase.includes('구름이 줄어듦')) {
+        return '../weatherdiary/assets/image/weather_img_7_1.png';
+    }
+};
+
+const getTodayRightImg = (LongPhrase) => {
+    if (LongPhrase.includes('추움')) {
+        return '../weatherdiary/assets/image/weather_img_1_2.png';
+    } else if (LongPhrase.includes('눈')) {
+        return '../weatherdiary/assets/image/weather_img_4_1.png';
+    } else if (LongPhrase.includes('비')) {
+        return '../weatherdiary/assets/image/weather_img_2_2.png';    
+    } else if (LongPhrase.includes('흐림') || LongPhrase.includes('흐려짐')) {
+        return '../weatherdiary/assets/image/weather_img_6_2.png';    
+    } else if (TLongPhrase.includes('구름이 줄어듦')) {
+        return '../weatherdiary/assets/image/weather_img_7_2.png';
+    }
+};
 const todayRender = () => {
     const todayWeather = document.querySelector('.today'); // HTML에서 날씨 정보를 보여줄 요소를 선택
     todayWeather.innerHTML = ''; // 이전의 날씨 정보를 초기화
@@ -57,7 +85,7 @@ const todayRender = () => {
     const forecast = weatherList[0]; // 첫 번째 날씨 예보 정보 가져오기
     const realFeelTemperature =  Math.round((forecast.RealFeelTemperature.Metric.Value));
     const Temperature = Math.round((forecast.Temperature.Metric.Value));
-    const styleTest = getStyleTest(forecast.Temperature.Metric.Value);
+    const styleTest = getStyleTest(Math.round(forecast.Temperature.Metric.Value));
 
     const forecastDetails = `<div class="today_address">서울특별시</div> 
     <div class="today_cont">${forecast.WeatherText}</div>       
@@ -74,19 +102,22 @@ const todayRender = () => {
 
 const todayAddRender = () => {
     const todayAddWeather = document.querySelector('.today_add'); // HTML에서 날씨 정보를 보여줄 요소를 선택
+    
     todayAddWeather.innerHTML = ''; // 이전의 날씨 정보를 초기화
 
     const forecast = weatherList[0]; // 첫 번째 날씨 예보 정보 가져오기
-
+    const imageSrc = getTodayLeftImg(forecast.Day.LongPhrase);
+    const imageSrc2 = getTodayRightImg(forecast.Day.LongPhrase);
 
     const minTemperature =  Math.round((forecast.Temperature.Minimum.Value));
     const maxTemperature =  Math.round((forecast.Temperature.Maximum.Value));
 
     const forecastAddDetails = `
             <div class="today_addTemperature"><span class="min">${minTemperature}°</span> / <span class="max">${maxTemperature}°</span></div>
-        
+            <div class="today_left"><img src="${imageSrc}">${forecast.Day.LongPhrase}</div>
+            <div class="today_right"><img src="${imageSrc2}">${forecast.Day.LongPhrase}</div>
     `;
-    todayAddWeather.innerHTML = forecastAddDetails; // 가져온 날씨 정보를 HTML 요소에 넣기
+    todayAddWeather.innerHTML = forecastAddDetails; 
 };
 
 const getImageSrc = (IconPhrase) => {

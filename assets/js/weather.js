@@ -17,21 +17,19 @@ const fetchWeatherData = async (url, dataHandler, renderCallback) => {
     }
 };
 
+const BASE_URL = 'https://musical-puppy-68f92c.netlify.app';
 const getCurrentWeather = () => {
-    const url = `http://dataservice.accuweather.com/currentconditions/v1/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
+    const url = `${BASE_URL}/currentconditions/v1/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
     fetchWeatherData(url, data => data, todayRender);
 };
-
 const getWeather = () => {
-    const url = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
+    const url = `${BASE_URL}/forecasts/v1/daily/1day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
     fetchWeatherData(url, data => data.DailyForecasts, todayAddRender);
 };
-
 const getWeekWeather = () => {
-    const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
+    const url = `${BASE_URL}/forecasts/v1/daily/5day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
     fetchWeatherData(url, data => data.DailyForecasts, weekendRender);
 };
-
 
 const getStyleTest = (Temperature) => {
     if (Temperature <= 3) {

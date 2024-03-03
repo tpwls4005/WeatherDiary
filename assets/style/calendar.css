@@ -614,6 +614,7 @@ background-color: var(--primary-clr);
 border: none;
 border-radius: 5px;
 cursor: pointer;
+width:100%;
 }
 
 .diary-form button:hover {

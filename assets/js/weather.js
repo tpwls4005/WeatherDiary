@@ -51,29 +51,29 @@ const getStyleTest = (Temperature) => {
 
 const getTodayLeftImg = (LongPhrase) => {
     if (LongPhrase.includes('추움')) {
-        return '../weatherdiary/assets/image/weather_img_1_1.png';
+        return '${BASE_URL}/assets/image/weather_img_1_1.png';
     } else if (LongPhrase.includes('눈')) {
-        return '../weatherdiary/assets/image/weather_img_4_1.png';
+        return '${BASE_URL}/assets/image/weather_img_4_1.png';
     } else if (LongPhrase.includes('비')) {
-        return '../weatherdiary/assets/image/weather_img_2_1.png';    
+        return '${BASE_URL}/assets/image/weather_img_2_1.png';    
     } else if (LongPhrase.includes('흐림') || LongPhrase.includes('흐려짐')) {
-        return '../weatherdiary/assets/image/weather_img_6_1.png';    
+        return '${BASE_URL}/assets/image/weather_img_6_1.png';    
     } else if (TLongPhrase.includes('구름이 줄어듦')) {
-        return '../weatherdiary/assets/image/weather_img_7_1.png';
+        return '${BASE_URL}/assets/image/weather_img_7_1.png';
     }
 };
 
 const getTodayRightImg = (LongPhrase) => {
     if (LongPhrase.includes('추움')) {
-        return '../weatherdiary/assets/image/weather_img_1_2.png';
+        return '${BASE_URL}/assets/image/weather_img_1_2.png';
     } else if (LongPhrase.includes('눈')) {
-        return '../weatherdiary/assets/image/weather_img_4_1.png';
+        return '${BASE_URL}/assets/image/weather_img_4_1.png';
     } else if (LongPhrase.includes('비')) {
-        return '../weatherdiary/assets/image/weather_img_2_2.png';    
+        return '${BASE_URL}/assets/image/weather_img_2_2.png';    
     } else if (LongPhrase.includes('흐림') || LongPhrase.includes('흐려짐')) {
-        return '../weatherdiary/assets/image/weather_img_6_2.png';    
+        return '${BASE_URL}/assets/image/weather_img_6_2.png';    
     } else if (TLongPhrase.includes('구름이 줄어듦')) {
-        return '../weatherdiary/assets/image/weather_img_7_2.png';
+        return '${BASE_URL}/assets/image/weather_img_7_2.png';
     }
 };
 const todayRender = () => {
@@ -120,25 +120,25 @@ const todayAddRender = () => {
 
 const getImageSrc = (IconPhrase) => {
     if (IconPhrase.includes('맑음')) {
-        return '../weatherdiary/assets/image/icon_sun.svg';
+        return '${BASE_URL}/assets/image/icon_sun.svg';
     } else if (IconPhrase.includes('흐림') || IconPhrase.includes('흐려짐')) {
-        return '../weatherdiary/assets/image/icon_cloud.svg';
+        return '${BASE_URL}/assets/image/icon_cloud.svg';
     } else if (IconPhrase.includes('구름이 줄어듦')) {
-        return '../weatherdiary/assets/image/icon_cloud3.svg';
+        return '${BASE_URL}/assets/image/icon_cloud3.svg';
     } else if (IconPhrase.includes('안개')) {
-        return '../weatherdiary/assets/image/icon_mist.svg';
+        return '${BASE_URL}/assets/image/icon_mist.svg';
     } else if (IconPhrase.includes('비')) {
-        return '../weatherdiary/assets/image/icon_rain.svg';
+        return '${BASE_URL}/assets/image/icon_rain.svg';
     } else if (IconPhrase.includes('눈')) {
-        return '../weatherdiary/assets/image/icon_snow.svg';
+        return '${BASE_URL}/assets/image/icon_snow.svg';
     } else if (IconPhrase.includes('소나기')) {
-        return '../weatherdiary/assets/image/icon_shower.svg';
+        return '${BASE_URL}/assets/image/icon_shower.svg';
     } else if (IconPhrase.includes('번개')) {
-        return '../weatherdiary/assets/image/icon_lightning.svg';
+        return '${BASE_URL}/assets/image/icon_lightning.svg';
     } else if(IconPhrase.includes('짙은구름')) {
-        return '../weatherdiary/assets/image/icon_cloud2.svg';
+        return '${BASE_URL}/assets/image/icon_cloud2.svg';
     } else if(IconPhrase.includes('추움') || IconPhrase.includes('바람')) {
-        return '../weatherdiary/assets/image/icon_wind.svg';
+        return '${BASE_URL}/assets/image/icon_wind.svg';
     }
 };
 

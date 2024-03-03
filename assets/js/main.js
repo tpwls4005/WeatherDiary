@@ -1,6 +1,6 @@
 
 window.onload = function() {
-    fetch('../weatherdiary/pages/header.html')
+    fetch('/pages/header.html')
     .then(response => response.text())
     .then(data => { 
         document.getElementById('header').innerHTML = data;
@@ -15,7 +15,7 @@ window.onload = function() {
          }
     });
 
-    fetch('../weatherdiary/pages/footer.html')
+    fetch('/pages/footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer').innerHTML = data;

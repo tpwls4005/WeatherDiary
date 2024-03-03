@@ -199,3 +199,9 @@ input::placeholder {
    font-size: medium;
    border-radius: 30px;
 }
+.emotion_content{
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   align-items: center;
+}

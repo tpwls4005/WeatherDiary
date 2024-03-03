@@ -87,12 +87,18 @@ input::placeholder {
     background-position: center;
     background-color: white;
 }
+#emotionBtn1.on{
+    background-image: url(../image/emotion1-1.png);
+}
 #emotionBtn2{
     background-image: url(../image/emotion2-2.png);
     background-repeat: no-repeat;
     background-size: 65px;
     background-position: center;
     background-color: white;
+}
+#emotionBtn.on{
+    background-image: url(../image/emotion1-2.png);
 }
 #emotionBtn3{
     background-image: url(../image/emotion2-3.png);
@@ -101,6 +107,9 @@ input::placeholder {
     background-position: center;
     background-color: white;
 }
+#emotionBtn3.on{
+    background-image: url(../image/emotion1-3.png);
+}
 #emotionBtn4{
     background-image: url(../image/emotion2-4.png);
     background-repeat: no-repeat;
@@ -108,8 +117,18 @@ input::placeholder {
     background-position: center;
     background-color: white;
 }
+#emotionBtn4.on{
+    background-image: url(../image/emotion1-4.png);
+}
 #emotionBtn5{
     background-image: url(../image/emotion2-5.png);
+    background-repeat: no-repeat;
+    background-size: 65px;
+    background-position: center;
+    background-color: white;
+}
+#emotionBtn5.on{
+    background-image: url(../image/emotion1-5.png);
     background-repeat: no-repeat;
     background-size: 65px;
     background-position: center;

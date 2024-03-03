@@ -58,8 +58,8 @@
     max-width: 250px;
 }
 .today_left{
-    top: 10%;
-    transform: translateX(-170%);
+    top:5%;
+    transform: translateX(-190%);
 }
 .today_right{
     transform: translateX(70%);

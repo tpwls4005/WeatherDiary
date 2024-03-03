@@ -69,6 +69,8 @@ img{
 #header{
     background-color: rgba(247,247,247,0.5);
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     height: auto;
     z-index: 999;
 }
@@ -79,12 +81,12 @@ header{
     z-index:99;
     position: relative;
 }
-header.scroll{
+/* header.scroll{
     height: 50px;
 }
 header.scroll .weather_logo{
     width: 50px;
-}
+} */
 .weather_logo{
     background-image: url("../image/logo.svg");
     background-repeat:no-repeat;
@@ -92,12 +94,12 @@ header.scroll .weather_logo{
     width: 70px;
     height: 70px;
 }
-header.scroll .weather_logo{
+/* header.scroll .weather_logo{
     background-image: url("../image/symbol.svg");
     width: 50px;
     height: 50px;
     background-position: center;
-}
+} */
 .weather_alarm{
     position: absolute;
     right:16px;
@@ -119,7 +121,7 @@ header.scroll .weather_logo{
 }
 .top_category.scroll{
     top:50px;
-    padding: 0px 0 15px;
+    padding: 5px 0 15px;
 }
 .top_category ul{
     gap:20px;

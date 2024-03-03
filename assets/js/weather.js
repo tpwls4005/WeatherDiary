@@ -1,4 +1,5 @@
-const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
+const API_KEY = `ANkZS1YiZkKrTwi1nfG8IrDtedXwx7Jx`;
+// const API_KEY = `tdA81qDc4LAVznQDrQKG9zv0kmexr8kL`;
 // const API_KEY = `IH2gk1Txd0lyoJXaRGnD996skbwQixXB`;
 let weatherList = [];
 

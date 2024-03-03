@@ -56,7 +56,6 @@ function initCalendar() {
 
    for (let i = 1; i <= lastDate; i++) {
       // Check if event is present on that day
-      // Check if event is present on that day
       let event = false
       eventsArr.forEach((eventObj) => {
          if (
@@ -96,7 +95,6 @@ function initCalendar() {
    addListner()
 }
 
-// Function to add month and year on prev and next button
 // Function to add month and year on prev and next button
 function prevMonth() {
    month--
@@ -221,7 +219,6 @@ function getActiveDay(date) {
 }
 
 // Function update events when a day is active
-// Function update events when a day is active
 function updateEvents(date) {
    let events = ''
    eventsArr.forEach((event) => {
@@ -255,7 +252,6 @@ function saveEvents() {
 }
 
 // Function to get events from local storage
-// Function to get events from local storage
 function getEvents() {
    //check if events are already saved in local storage then return event else nothing
    if (localStorage.getItem('events') === null) {
@@ -275,15 +271,22 @@ document.addEventListener('DOMContentLoaded', function () {
    //이모지 버튼 클릭 시 선택된 이모지의 이미지 경로를 저장합니다.
    emotionButtons.forEach((button) => {
       button.addEventListener('click', (e) => {
-         //선택한 버튼의 .on이 붙은 클래스로 가져온다.
-         emotionButtons.forEach((button) => button.classList.remove('on'))
-         button.classList.add('on')
+         //이모지 버튼 클릭 시, 상태 계속해서 변경해줍니다. (클릭 시마다 디폴트 버튼, on 버튼으로 변경)
+         if (button.classList.contains('on')) {
+            // 이미 선택된 버튼을 다시 클릭하면 선택 해제합니다. (on 삭제)
+            button.classList.remove('on')
+            selectedEmojiSrc = ''
+         } else {
+            //선택한 버튼의 .on이 붙은 클래스로 가져옵니다.
+            emotionButtons.forEach((btn) => btn.classList.remove('on'))
+            button.classList.add('on')
 
-         //가져온 클래스의 이미지 url로 Src 속성 저장한다.
-         const buttonOnStyle = window.getComputedStyle(button)
-         selectedEmojiSrc = buttonOnStyle
-            .getPropertyValue('background-image')
-            .slice(5, -2)
+            //가져온 클래스의 이미지 url로 Src 속성을 저장합니다.
+            const buttonOnStyle = window.getComputedStyle(button)
+            selectedEmojiSrc = buttonOnStyle
+               .getPropertyValue('background-image')
+               .slice(5, -2)
+         }
       })
    })
 
@@ -309,17 +312,17 @@ document.addEventListener('DOMContentLoaded', function () {
       emotionButtons.forEach((button) => button.classList.remove('on'))
    })
 
-   function saveDiary(content, timestamp, emojiSrc) {
+   function saveDiary(content, timestamp, selectedEmojiSrc) {
       // 저장된 일기를 어딘가에 저장하는 로직을 추가할 수 있습니다.
-      const diaryItem = createDiaryItem(content, timestamp, emojiSrc)
+      const diaryItem = createDiaryItem(content, timestamp, selectedEmojiSrc)
       diaryList.appendChild(diaryItem)
    }
 
-   function createDiaryItem(content, timestamp, emojiSrc) {
-      // 이모지 예외 처리합니다. (선택된 이미지 없을 시(즉, 별도 지정된 scr 없을 시) 이미지 부분 제외 처리)
-      let emojiContent = !emojiSrc
+   function createDiaryItem(content, timestamp, selectedEmojiSrc) {
+      // 이모지 예외 처리합니다. (선택된 이모지 없을 시(즉, 별도 지정된 src 없을 시) 이모지 제외 처리)
+      let emojiContent = !selectedEmojiSrc
          ? ''
-         : `<div class="diary-emoji"><img src="${emojiSrc}" alt="이모지" /></div>`
+         : `<div class="diary-emoji"><img src="${selectedEmojiSrc}" alt="이모지" /></div>`
 
       const itemHTML = `
     <div class="diary-item">

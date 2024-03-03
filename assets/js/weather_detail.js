@@ -1,6 +1,6 @@
 //1. 날씨 api 불러오기
-const API_KEY = 'nv6XTKu9utcGZSoAam5e2hKSAzUiHANi'
-//const API_KEY = 'lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7'
+// const API_KEY = 'nv6XTKu9utcGZSoAam5e2hKSAzUiHANi'
+const API_KEY = 'lkUpGdk78WKJTRMsf3vaKPFFQgImLsP7'
 
 let weatherDetails = null
 let weatherHourlyDetails = []

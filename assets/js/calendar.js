@@ -259,15 +259,6 @@ function updateEvents(date) {
   saveEvents();
 }
 
-// Function to add event
-function addEventSubmit() {
-  // 나머지 코드는 동일합니다.
-}
-// Function to add event
-function addEventSubmit() {
-  // 나머지 코드는 동일합니다.
-}
-
 function saveEvents() {
   localStorage.setItem("events", JSON.stringify(eventsArr));
 }
@@ -325,9 +316,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return item;
   }
-
-  // 나중에 추가할 기능:
-  // - 일기 삭제 기능
-  // - 일기 로드 기능 (페이지가 새로고침되었을 때 저장된 일기를 불러오는 등)
 });
 

@@ -9,8 +9,6 @@ const fetchWeatherData = async (url, dataHandler, renderCallback) => {
 
         // 데이터 처리 콜백을 통해 데이터 가공
         weatherList = dataHandler(data);
-
-        console.log(weatherList);
         renderCallback();
     } catch (error) {
         console.error('날씨 데이터를 받아오는데 실패했습니다.', error);

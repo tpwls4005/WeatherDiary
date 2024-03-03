@@ -250,10 +250,7 @@ function updateEvents(date) {
     }
   });
   if (events === "") {
-    events = `<div class="no-event">
-            <!--<h3></h3>-->
-            <!--<h3></h3>-->
-        </div>`;
+    events = ``;
   }
   eventsContainer.innerHTML = events;
   saveEvents();
@@ -300,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function createDiaryItem(content, timestamp) {
-    const item = document.createElement("li");
+    const item = document.createElement("div");
     item.classList.add("diary-item");
 
     const contentParagraph = document.createElement("p");
@@ -313,8 +310,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     item.appendChild(contentParagraph);
     item.appendChild(timestampParagraph);
-
+    diaryWrap.classList.remove("on");
     return item;
+    
   }
 });
 
+//팝업으로 띄우기
+let diaryWrap = document.querySelector('.diary-wrap')
+let writingBtn = document.querySelector('.writing_btn')
+writingBtn.addEventListener("click", diaryWriteEvent);
+
+
+function diaryWriteEvent() {
+    if (diaryWrap.classList.contains("on")) {
+      diaryWrap.classList.remove("on");
+    } else {
+      diaryWrap.classList.add("on");
+    }
+};

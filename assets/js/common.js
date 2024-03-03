@@ -7,10 +7,8 @@ window.addEventListener('scroll', function() {
 
 
     if (scrollPosition > 0) {
-        header.classList.add('scroll');
         topCategory.classList.add('scroll');
     } else { // 그 외의 경우
-        header.classList.remove('scroll');
         topCategory.classList.remove('scroll');
     }
 });

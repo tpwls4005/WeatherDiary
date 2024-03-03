@@ -291,35 +291,51 @@ document.addEventListener("DOMContentLoaded", function () {
   function saveDiary(content) {
     // 저장된 일기를 어딘가에 저장하는 로직을 추가할 수 있습니다.
     // 여기서는 단순히 일기 목록에 추가하도록 하겠습니다.
-    const timestamp = new Date().toLocaleString();
+    const timesDate = new Date();
+    const timesHour = timesDate.getHours();
+    const timesMinutes = timesDate.getMinutes();
+    
+    const timestamp = `${timesHour} : ${timesMinutes}`
+
     const diaryItem = createDiaryItem(content, timestamp);
     diaryList.appendChild(diaryItem);
   }
 
   function createDiaryItem(content, timestamp) {
-    const item = document.createElement("div");
-    item.classList.add("diary-item");
-
-    const contentParagraph = document.createElement("p");
-    contentParagraph.classList.add("diary-content");
-    contentParagraph.textContent = content;
-
-    const timestampParagraph = document.createElement("p");
-    timestampParagraph.classList.add("diary-timestamp");
-    timestampParagraph.textContent = timestamp;
-
-    item.appendChild(contentParagraph);
-    item.appendChild(timestampParagraph);
+    // 아이템 생성
+    const itemHTML = `
+        <div class="diary-item">
+            <div class="diary-itemBox">
+              <div class="diary-emoji"></div>
+              <div class="diary-contentWrap">
+                <p class="diary-content">${content}</p>
+                <p class="diary-timestamp">${timestamp}</p>
+              </div>
+            </div>
+            <div class="diary-close"></div>
+        </div>
+    `;
     diaryWrap.classList.remove("on");
-    return item;
     
-  }
+    // 생성한 HTML 문자열을 DOM 요소로 변환
+     const tempDiv = document.createElement('div');
+     tempDiv.innerHTML = itemHTML.trim();
+     
+     // diary-close에 클릭 이벤트 리스너 추가
+     tempDiv.querySelector('.diary-close').addEventListener('click', diaryClose);;
+    
+    // 첫 번째 자식 요소를 반환
+    return tempDiv.firstChild;
+  } 
 });
 
 //팝업으로 띄우기
-let diaryWrap = document.querySelector('.diary-wrap')
-let writingBtn = document.querySelector('.writing_btn')
+let diaryWrap = document.querySelector('.diary-wrap');
+let writingBtn = document.querySelector('.writing_btn');
+let diaryWrapDim = document.querySelector('.diary-wrap .dim');
+
 writingBtn.addEventListener("click", diaryWriteEvent);
+diaryWrapDim.addEventListener("click", dimClose2);
 
 
 function diaryWriteEvent() {
@@ -329,3 +345,13 @@ function diaryWriteEvent() {
       diaryWrap.classList.add("on");
     }
 };
+
+function dimClose2 () {
+  diaryWrap.classList.remove("on");
+}
+
+// diary-item을 삭제하는 함수
+function diaryClose(e) {
+  const diaryItem = e.target.closest('.diary-item');
+  diaryItem.remove();
+}

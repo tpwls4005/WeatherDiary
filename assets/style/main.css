@@ -63,7 +63,7 @@
 }
 .today_right{
     transform: translateX(70%);
-    top: 120px;
+    top: 20%;
 }
 .min{
     color:#2a74f8;

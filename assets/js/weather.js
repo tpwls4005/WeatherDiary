@@ -16,20 +16,22 @@ const fetchWeatherData = async (url, dataHandler, renderCallback) => {
         console.error('날씨 데이터를 받아오는데 실패했습니다.', error);
     }
 };
-
 const BASE_URL = 'https://musical-puppy-68f92c.netlify.app';
 const getCurrentWeather = () => {
     const url = `${BASE_URL}/currentconditions/v1/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
     fetchWeatherData(url, data => data, todayRender);
 };
+
 const getWeather = () => {
     const url = `${BASE_URL}/forecasts/v1/daily/1day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
     fetchWeatherData(url, data => data.DailyForecasts, todayAddRender);
 };
+
 const getWeekWeather = () => {
     const url = `${BASE_URL}/forecasts/v1/daily/5day/226081?apikey=${API_KEY}&language=ko-kr&details=true&metric=true`;
     fetchWeatherData(url, data => data.DailyForecasts, weekendRender);
 };
+
 
 const getStyleTest = (Temperature) => {
     if (Temperature <= 3) {
@@ -51,29 +53,29 @@ const getStyleTest = (Temperature) => {
 
 const getTodayLeftImg = (LongPhrase) => {
     if (LongPhrase.includes('추움')) {
-        return `${BASE_URL}/assets/image/weather_img_1_1.png`;
+        return '../assets/image/weather_img_1_1.png';
     } else if (LongPhrase.includes('눈')) {
-        return `${BASE_URL}/assets/image/weather_img_4_1.png`;
+        return '../assets/image/weather_img_4_1.png';
     } else if (LongPhrase.includes('비')) {
-        return `${BASE_URL}/assets/image/weather_img_2_1.png`;    
+        return '../assets/image/weather_img_2_1.png';    
     } else if (LongPhrase.includes('흐림') || LongPhrase.includes('흐려짐')) {
-        return `${BASE_URL}/assets/image/weather_img_6_1.png`;    
+        return '../assets/image/weather_img_6_1.png';    
     } else if (TLongPhrase.includes('구름이 줄어듦')) {
-        return `${BASE_URL}/assets/image/weather_img_7_1.png`;
+        return '../assets/image/weather_img_7_1.png';
     }
 };
 
 const getTodayRightImg = (LongPhrase) => {
     if (LongPhrase.includes('추움')) {
-        return `${BASE_URL}/assets/image/weather_img_1_2.png`;
+        return '../assets/image/weather_img_1_2.png';
     } else if (LongPhrase.includes('눈')) {
-        return `${BASE_URL}/assets/image/weather_img_4_1.png`;
+        return '../assets/image/weather_img_4_1.png';
     } else if (LongPhrase.includes('비')) {
-        return `${BASE_URL}/assets/image/weather_img_2_2.png`;    
+        return '../assets/image/weather_img_2_2.png';    
     } else if (LongPhrase.includes('흐림') || LongPhrase.includes('흐려짐')) {
-        return `${BASE_URL}/assets/image/weather_img_6_2.png`;    
+        return '../assets/image/weather_img_6_2.png';    
     } else if (TLongPhrase.includes('구름이 줄어듦')) {
-        return `${BASE_URL}/assets/image/weather_img_7_2.png`;
+        return '../assets/image/weather_img_7_2.png';
     }
 };
 const todayRender = () => {
@@ -120,25 +122,25 @@ const todayAddRender = () => {
 
 const getImageSrc = (IconPhrase) => {
     if (IconPhrase.includes('맑음')) {
-        return `${BASE_URL}/assets/image/icon_sun.svg`;
+        return '../assets/image/icon_sun.svg';
     } else if (IconPhrase.includes('흐림') || IconPhrase.includes('흐려짐')) {
-        return `${BASE_URL}/assets/image/icon_cloud.svg`;
+        return '../assets/image/icon_cloud.svg';
     } else if (IconPhrase.includes('구름이 줄어듦')) {
-        return `${BASE_URL}/assets/image/icon_cloud3.svg`;
+        return '../assets/image/icon_cloud3.svg';
     } else if (IconPhrase.includes('안개')) {
-        return `${BASE_URL}/assets/image/icon_mist.svg`;
+        return '../assets/image/icon_mist.svg';
     } else if (IconPhrase.includes('비')) {
-        return `${BASE_URL}/assets/image/icon_rain.svg`;
+        return '../assets/image/icon_rain.svg';
     } else if (IconPhrase.includes('눈')) {
-        return `${BASE_URL}/assets/image/icon_snow.svg`;
+        return '../assets/image/icon_snow.svg';
     } else if (IconPhrase.includes('소나기')) {
-        return `${BASE_URL}/assets/image/icon_shower.svg`;
+        return '../assets/image/icon_shower.svg';
     } else if (IconPhrase.includes('번개')) {
-        return `${BASE_URL}/assets/image/icon_lightning.svg`;
+        return '../assets/image/icon_lightning.svg';
     } else if(IconPhrase.includes('짙은구름')) {
-        return `${BASE_URL}/assets/image/icon_cloud2.svg`;
+        return '../assets/image/icon_cloud2.svg';
     } else if(IconPhrase.includes('추움') || IconPhrase.includes('바람')) {
-        return `${BASE_URL}/assets/image/icon_wind.svg`;
+        return '../assets/image/icon_wind.svg';
     }
 };
 

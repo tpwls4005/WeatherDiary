@@ -1,68 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>times</title>
-  <script src="https://kit.fontawesome.com/cf9e4d9f37.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
-   
-  <link href="/assets/style/common.css" rel="stylesheet">
-  <link href="/assets/style/main.css" rel="stylesheet">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>times</title>
+      <script
+         src="https://kit.fontawesome.com/cf9e4d9f37.js"
+         crossorigin="anonymous"
+      ></script>
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+         crossorigin="anonymous"
+      />
+      <link
+         rel="stylesheet"
+         as="style"
+         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+      />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap"
+         rel="stylesheet"
+      />
 
-</head>
-<body>
-  <div class="body_wrap">
-    <div class="page_title">홈</div>
-    <div id="header" class="position-sticky top-0 start-0"></div>
+      <link
+         href="../weatherdiary/assets/style/weather_detail.css"
+         rel="stylesheet"
+      />
+      <link href="../weatherdiary/assets/style/main.css" rel="stylesheet" />
+   </head>
+   <body>
+      <div class="body_wrap">
+         <div class="page_title">홈</div>
+         <div id="header" class="position-sticky top-0 start-0"></div>
 
-    <div class="contain">
-      <div class="today_weather">
-          <div class="today"></div>
-          <div class="today_add"></div>
+         <div class="contain">
+            <div class="today_weather">
+               <div class="today"></div>
+               <div class="today_add"></div>
+            </div>
+
+            <div class="weekly_forecast_area">
+               <div
+                  class="title d-flex justify-content-between align-items-center"
+               >
+                  주간날씨
+                  <p>
+                     <span class="min">최저</span>/<span class="max">최고</span>
+                  </p>
+               </div>
+               <div class="weekly_weather text-center">
+                  <ul class="week_list row"></ul>
+               </div>
+            </div>
+         </div>
+         <div id="footer" class="position-fixed"></div>
       </div>
-
-      <div class="weekly_forecast_area">
-        <div class="title d-flex justify-content-between align-items-center">주간날씨 <p><span class="min">최저</span>/<span class="max">최고</span></p></div>
-        <div class="weekly_weather text-center">
-            <ul class="week_list row">
-             
-            </ul>
-        </div>
+      <!--알림 설정 영역-->
+      <div class="alarm_popup_wrap">
+         <div class="dim" onclick="dimClose()"></div>
+         <div class="alarm_popup">
+            <div class="alarm_cont">
+               <div
+                  class="title d-flex flex-column justify-content-between align-items-center"
+               >
+                  알림 설정
+                  <span>시간을 선택해주세요. </span>
+               </div>
+               <div
+                  class="alarm_select d-flex justify-content-between align-items-center"
+               >
+                  <select
+                     id="hourSelect"
+                     class="form-select"
+                     aria-label="Default select example"
+                  ></select
+                  >시
+                  <select
+                     id="minuteSelect"
+                     class="form-select"
+                     aria-label="Default select example"
+                  ></select
+                  >분
+               </div>
+               <button
+                  class="alarm_btn btn btn-dark"
+                  type="button"
+                  onclick="confirmAlarmBox()"
+               >
+                  확인
+               </button>
+            </div>
+            <div class="close_btn" onclick="closeAlarmBox()"></div>
+         </div>
       </div>
-    </div>
-    <div id="footer" class="position-fixed"></div>
-  </div>
-<!--알림 설정 영역-->
-<div class="alarm_popup_wrap">
-  <div class="dim" onclick="dimClose()"></div>
-  <div class="alarm_popup">
-    <div class="alarm_cont">
-      <div class="title d-flex  flex-column justify-content-between align-items-center">알림 설정
-        <span>시간을 선택해주세요. </span>
-      </div>
-      <div class="alarm_select d-flex justify-content-between align-items-center">
-        <select id="hourSelect"  class="form-select" aria-label="Default select example"></select>시
-        <select id="minuteSelect"  class="form-select" aria-label="Default select example"></select>분
-      </div>
-      <button class="alarm_btn btn btn-dark" type="button" onclick="confirmAlarmBox()">확인</button>
-    </div>
-    <div class="close_btn" onclick="closeAlarmBox()"></div>
-  </div>
-</div>
-<!--알림 설정 영역 끝-->
+      <!--알림 설정 영역 끝-->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
-        crossorigin="anonymous"></script>
- 
-<script src="/assets/js/main.js"></script>       
-<script src="/assets/js/weather.js"></script>
-<script src="/assets/js/common.js"></script>  
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+         integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+         crossorigin="anonymous"
+      ></script>
 
-</body>
+      <script src="../weatherdiary/assets/js/weather_detail.js"></script>
+      <script src="../weatherdiary/assets/js/weather.js"></script>
+      <script src="../weatherdiary/assets/js/main.js"></script>
+   </body>
 </html>
